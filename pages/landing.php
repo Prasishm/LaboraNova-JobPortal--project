@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Landing Page</title>
     <link rel="stylesheet" href="../css/landing.css" />
   </head>
   <body>
@@ -15,7 +15,7 @@
         <a href="">Browse Job</a>
         <a href="">About</a>
         <a href="">Log in</a>
-        <a href="" class="signup">Sign up</a>
+        <a href="../pages/signup.php" class="signup">Sign up</a>
       </div>
     </nav>
     <div class="mid">

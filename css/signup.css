@@ -1,0 +1,131 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Helvetica, sans-serif;
+}
+.main{
+    display:flex;
+    
+}
+
+.left{
+    width:60%;
+    height: 100vh;
+    background-color:blue;
+
+}
+form{
+    display: flex;
+    flex-direction: column;
+    
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    width:40%;
+    height: 100%;
+    background-color:white;
+    padding:0 40px;
+}
+input{
+    margin-left: 5px;
+    width: 535px;
+    border: 2px solid;
+    border-radius: 10px;
+    border-color: #cdc0c0;
+    padding: 3px;
+}
+.gender-container{
+    display: flex;
+    gap: 10px;
+    margin-left: 10px;
+    
+}
+.gender-option input{
+    display: none;
+}
+.gender-option{
+    width: 150px;
+    height: 30px;
+    border: 1px solid #cdc0c0;
+    border-radius: 5px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.gender-option::after{
+    content: "";
+    width: 18px;
+    height: 18px;
+    border: 2px solid #afa5a5;
+    border-radius: 50%;
+}
+.gender-option:has(input:checked){
+    background: #eaf2ff;
+    border-color: #3b82f6;
+}
+.gender-option:has(input:checked) span{
+    color: #3b82f6;
+}
+.gender-option:has(input:checked)::after{
+    content: "✓";
+    color: #3b82f6;
+    border-color: #3b82f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+select{
+    margin-left: 10px;
+    width: 535px;
+    border: 2px solid;
+    border-radius: 10px;
+    border-color: #cdc0c0;
+    padding: 3px;
+}
+input[type="file"]{
+    border: none;
+}
+.left img{
+    height: 100%;
+    width: 100%;
+}
+.right img{
+    width: 150px;
+    height: 50px;
+    /* margin-bottom:20px; */
+}
+.gap{
+    margin-bottom:7px;
+    margin-top:7px;
+}
+button{
+    width:535px;
+    border-radius:15px;
+    margin-top:20px;
+    background-color:#3b82f6;
+    height:30px;
+}
+button:hover{
+    color:white;
+    cursor:pointer;
+}
+p{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:10px;
+}
+a{
+    text-decoration:none;
+    color:#3b82f6;
+}
+p a{
+    margin-left:5px;
+}
+p a:hover{
+    color:rgb(0, 0, 0);
+}
