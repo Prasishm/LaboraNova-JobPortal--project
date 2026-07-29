@@ -12,10 +12,10 @@
         <h3>LaboraNova</h3>
       </div>
       <div class="b">
-        <a href="">Browse Job</a>
+        <a href="../pages/browsejob.php">Browse Job</a>
         <a href="">About</a>
         <a href="">Log in</a>
-        <a href="../pages/signup.php" class="signup">Sign up</a>
+        <a href="../pages/signupworker.php" class="signup">Sign up</a>
       </div>
     </nav>
     <div class="mid">
@@ -41,9 +41,7 @@
           <button>
             Find Jobs<img
               src="../assets/arrow-narrow-right.svg"
-              class="img_logo"
-              alt=""
-            />
+              class="img_logo" alt=""/>
           </button>
         </div>
         <p class="">

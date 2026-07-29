@@ -1,0 +1,93 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Helvetica, sans-serif;
+}
+.main{
+    display:flex;
+    
+}
+
+.left{
+    width:60%;
+    height: 100vh;
+    background-color:blue;
+
+}
+form{
+    display: flex;
+    flex-direction: column;
+    
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    width:40%;
+    height: 100%;
+    background-color:white;
+    padding:0 40px;
+}
+input{
+    width: 535px;
+    border: 2px solid;
+    border-radius: 10px;
+    border-color: #cdc0c0;
+    padding: 3px;
+    height:20px;
+}
+input[type="file"]{
+    border: none;
+}
+.left img{
+    height: 100%;
+    width: 100%;
+}
+.right img{
+    width: 150px;
+    height: 50px;
+    /* margin-bottom:20px; */
+}
+.gap{
+    margin-bottom:15px;
+    margin-top:15px;
+}
+button{
+    width:535px;
+    border-radius:15px;
+    margin-top:20px;
+    margin-bottom: 15px;
+    background-color:#3b82f6;
+    height:30px;
+}
+button:hover{
+    color:white;
+    cursor:pointer;
+}
+p{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:10px;
+}
+a{
+    text-decoration:none;
+    color:#3b82f6;
+}
+p a{
+    margin-left:5px;
+}
+p a:hover{
+    color:rgb(0, 0, 0);
+}
+input[type="tel"]{
+    width: 250px;
+    margin-left: 10px;
+}
+input[type="mail"]{
+    width:250px;
+    margin-right: 10px;
+}
+.mail-phone{
+    display: flex;
+    gap: 249px;
+}

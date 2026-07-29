@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
-    <link rel="stylesheet" href="../css/signup.css">
+    <link rel="stylesheet" href="../css/signupwoker.css">
 </head>
 <body>
     <div class="main">
@@ -17,9 +17,11 @@
         <label class="gap" for="abc">Full Name</label><input type="text" name="username" placeholder="Username" id="name">
         <label class="gap" for="Mail">Email</label><input type="main" name="mail" placeholder="Mail" id="Mail">
         <label class="gap" for="Password">Password</label><input type="password" name="password" placeholder="Password" id="Password">
-        <label class="gap"> Date&nbspof&nbspBirth </label>
+        <div class="same-line">
+        <div class="date-phone"><label class="gap"> Date&nbspof&nbspBirth </label> <label class="gap"for="phone">Phone number</label><br></div>
         <input id="datee" type="date" name="date" placeholder="Select your date of Birth" id="">
-        <label class="gap"for="phone">Phone number</label><input type="tel" name="phone" placeholder="Enter your phone number" id="phone">
+        <input type="tel" name="phone" placeholder="Enter your phone number" id="phone">
+        </div>
         <label class="gap" for="">Gender</label>
         <div class="gender-container">
             <label class="gender-option">
