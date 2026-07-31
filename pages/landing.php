@@ -9,18 +9,22 @@
   <body>
     <nav>
       <div class="top">
-        <h3>LaboraNova</h3>
+        <img  class="img-top" src="../assets/lavoranovaaa.png" alt="">
+      </div>
+      <div class="center">
+      <a href="landing.php" class="grey">Home</a>
+      <a href="../pages/browsejob.php" class="grey">Browse Job</a>
+      <a href="" class="grey">Browse Company</a>
+      <a href="" class="grey">About</a>
       </div>
       <div class="b">
-        <a href="../pages/browsejob.php">Browse Job</a>
-        <a href="">About</a>
-        <a href="">Log in</a>
-        <a href="../pages/signupworker.php" class="signup">Sign up</a>
+        <a href="" class="sign signcommon">Sign in</a>
+        <a href="../pages/signupworker.php" class="signup signcommon">Sign up</a>
       </div>
     </nav>
     <div class="mid">
       <div class="midbottom">
-        <h1 class="home">Find the loop that <br />moves your career.</h1>
+        <h1 class="home">Find the loop that <span class="orange"><br />moves your career.</span></h1>
         <br />
         <p class="mid-grey">
           Laboranova is the premium marketplace connecting world-class talent
@@ -29,7 +33,7 @@
         </p>
         <br />
         <div class="search-bar">
-          <div class="search">
+          <div class="search border">
             <img src="../assets/search.svg" class="img_logo" />
             <input type="text" placeholder="Job title, skill, or company" />
           </div>
@@ -37,7 +41,6 @@
             <img src="../assets/map-pin.svg" class="img_logo" alt="" />
             <input type="text" placeholder="Location or Remote" />
           </div>
-
           <button>
             Find Jobs<img
               src="../assets/arrow-narrow-right.svg"
@@ -49,7 +52,7 @@
           Scientist
         </p>
         <div class="browse">
-          <h4 class="blue">Browse By Category</h4>
+          <h4 class="orange">Browse By Category</h4>
           <h2>Find your lane</h2>
           <p class="mid-grey">
             Eight broad categories, hundreds of specialties. Start where your

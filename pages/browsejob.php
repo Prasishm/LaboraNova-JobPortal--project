@@ -22,7 +22,7 @@
             <a href="../pages/signupworker.php" class="signup">Sign up</a>
         </div>
     </nav>
-    <div class="main">
+    <div class="main" id="browseJob">
         <div class="text">
             <h1>Find Your next role</h1>
             <p>9 live roles from verified companies</p>
@@ -39,7 +39,7 @@
         <div class="filter-container">
             <div class="filter-header">
                 <h3>Filter</h3>
-                <a href="" class="clear">Clear all</a>
+                <a href="" class="hidden clearBtn">Clear all</a>
             </div>
             <div class="filter-section">
                 <h4>Employment Type</h4>
@@ -103,6 +103,7 @@
             </div>
         </div>
     </div>
+    <script src="../js/browsejob.js"></script>
 </body>
 
 </html>

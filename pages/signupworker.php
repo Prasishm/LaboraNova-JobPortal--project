@@ -12,7 +12,7 @@
         <img src="../assets/luis-villasmil-mlVbMbxfWI4-unsplash.jpg" alt="">
         </div>
         <div class="right">
-            <img src="../assets/Screenshot_2026-07-28_195444-removebg-preview.png" alt="">
+            <img src="../assets/lavoranovaaa.png" alt="">
         <form action="../actions/signup.php" method="post">
         <label class="gap" for="abc">Full Name</label><input type="text" name="username" placeholder="Username" id="name">
         <label class="gap" for="Mail">Email</label><input type="main" name="mail" placeholder="Mail" id="Mail">

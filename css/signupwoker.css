@@ -11,7 +11,6 @@
 .left{
     width:60%;
     height: 100vh;
-    background-color:blue;
 
 }
 form{
@@ -37,9 +36,7 @@ input{
 }
 .gender-container{
     display: flex;
-    gap: 10px;
-    /* margin-left: 10px; */
-    
+    gap: 10px; 
 }
 .gender-option input{
     display: none;
@@ -64,15 +61,15 @@ input{
 }
 .gender-option:has(input:checked){
     background: #eaf2ff;
-    border-color: #3b82f6;
+    border-color: #eb5935   ;
 }
 .gender-option:has(input:checked) span{
-    color: #3b82f6;
+    color: #eb5935;
 }
 .gender-option:has(input:checked)::after{
     content: "✓";
-    color: #3b82f6;
-    border-color: #3b82f6;
+    color: #eb5935;
+    border-color: #eb5935;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,7 +103,7 @@ button{
     width:535px;
     border-radius:15px;
     margin-top:20px;
-    background-color:#3b82f6;
+    background-color:#eb5935;
     height:30px;
 }
 button:hover{
@@ -121,7 +118,7 @@ p{
 }
 a{
     text-decoration:none;
-    color:#3b82f6;
+    color:#eb5935;
 }
 p a{
     margin-left:5px;

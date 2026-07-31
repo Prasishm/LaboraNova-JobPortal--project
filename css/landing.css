@@ -1,53 +1,77 @@
 *{
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 body{
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
+h1{
+    text-align: center;
+}
 nav{
     position: fixed;
     top: 0;
     width: 100%;
-    background: white;
+    background: #faf8f8;
     z-index: 1000;
     display: flex;
     align-items: center;
     padding: 15px 40px;
     box-sizing: border-box;
+    justify-content: space-between;
+    border-bottom: 1px solid;
+    border-color:#8888;
+}
+hr{
+    border-color: #8888;
 }
 .b {
     display: flex;
-    margin-left: auto;
     margin-right: 50px;
     gap: 20px;
     align-items: center;
+    
 }
-.b a{
-    color: rgb(0, 0, 0);
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.sign{
+
+    color: #eb5935;
+    
+    border-color: #cdd2dd;
+}
+.b .signup{
+    background-color: #eb5935;
+    color: white;
+
+}
+
+.signcommon{
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    border: 1px solid;
+}
+
+a{
     text-decoration: none;
 }
 .top{
     margin-left: 30px;
 }
 
-.b .signup{
-    background-color: #2563eb;
-    color: white;
-    border-radius: 10px;
-    font-weight: bold;
-    padding: 5px 5px;
-}
 .mid{
-    background-color: #edf1fa;
-    margin-top: 15px;
+    background-color: #fef7f5;
+    padding: 150px;
 }
 .home{
     font-size: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-top: 50px;
     
 }
@@ -70,7 +94,6 @@ nav{
     align-items: center;
 }
 
-
 .search-bar{
     width: 800px;
     background: white;
@@ -88,10 +111,14 @@ nav{
     padding: 0 15px;
     gap: 10px;
 }
-.search{
-    border-right: 1px solid rgb(164, 121, 121);
+.border{
+    border-right: 1px solid #8888;
 }
-
+.img-top{
+    z-index: 1px;
+    width: 180px;
+    height: 40px;
+}
 .search input{
     border: none;
     outline: none;
@@ -99,7 +126,7 @@ nav{
     font-size: 16px;
 }
 button{
-    background: #2f5bea;
+    background: #eb5935;
     color: white;
     border: none;
     padding: 15px 30px;
@@ -126,8 +153,8 @@ button{
 }
 
 
-.blue{
-    color:#2e5bda;
+.orange{
+    color:#eb5935;
 }
 .browse h2{
     font-size: 50px;

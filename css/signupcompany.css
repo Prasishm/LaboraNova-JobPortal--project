@@ -11,8 +11,6 @@
 .left{
     width:60%;
     height: 100vh;
-    background-color:blue;
-
 }
 form{
     display: flex;
@@ -56,7 +54,7 @@ button{
     border-radius:15px;
     margin-top:20px;
     margin-bottom: 15px;
-    background-color:#3b82f6;
+    background-color:#eb5935;
     height:30px;
 }
 button:hover{
@@ -71,7 +69,7 @@ p{
 }
 a{
     text-decoration:none;
-    color:#3b82f6;
+    color:#eb5935;
 }
 p a{
     margin-left:5px;
