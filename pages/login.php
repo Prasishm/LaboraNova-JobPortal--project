@@ -1,3 +1,31 @@
+<?php
+
+include "../database/conn.php";
+
+if (isset($_POST['submit'])) {
+    $email = $_POST['mail'];
+    $password = $_POST['password'];
+
+    $sql = "SELECT * FROM jobseeker WHERE email = '$email'";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        if (password_verify($password, $row['password'])) {
+            session_start();
+            $_SESSION['jobseeker_id'] = $row['jobseeker_id'];
+            $_SESSION['Full_name'] = $row['Full_name'];
+            header("Location: ../pages/jobseekerdashboard.php");
+            exit();
+        } else {
+            echo "<script>alert('Invalid email or password!'); window.location.href = 'login.php';</script>";
+        }
+    } else {
+        echo "<script>alert('Invalid email or password!'); window.location.href = 'login.php';</script>";
+    }
+}   
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

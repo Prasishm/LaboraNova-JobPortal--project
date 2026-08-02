@@ -9,7 +9,7 @@
 }
 
 .left{
-    width:60%;
+    width:50%;
     height: 100vh;
 
 }
@@ -21,11 +21,14 @@ form{
 .right{
     display: flex;
     flex-direction: column;
-    width:40%;
+    align-items: center;
+    justify-content: center;
+    width:50%;
     height: 100%;
     background-color:white;
     padding:0 40px;
 }
+
 input{
     width: 535px;
     border: 2px solid;
