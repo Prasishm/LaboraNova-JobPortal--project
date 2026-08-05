@@ -9,18 +9,20 @@
 </head>
 
 <body>
-    <nav>
-        <div class="top">
-            <a href="../pages/landing.php">
-                <h3>LaboraNova</h3>
-            </a>
-        </div>
-        <div class="b">
-            <a href="../pages/browsejob.php">Browse Job</a>
-            <a href="">About</a>
-            <a href="">Log in</a>
-            <a href="../pages/signupworker.php" class="signup">Sign up</a>
-        </div>
+        <nav>
+    <div class="top">
+        <img  class="img-top" src="../assets/lavoranovaaa.png" alt="">
+    </div>
+    <div class="center">
+    <a href="../pages/landing.php" class="grey">Home</a>
+    <a href="../pages/browsejob.php" class="grey">Browse Job</a>
+    <a href="../pages/companies.php" class="grey">Browse Company</a>
+    <a href="" class="grey">About</a>
+    </div>
+    <div class="b">
+        <a href="" class="sign signcommon">Sign in</a>
+        <a href="../pages/signupworker.php" class="signup signcommon">Sign up</a>
+    </div>
     </nav>
     <div class="main" id="browseJob">
         <div class="text">
@@ -102,6 +104,37 @@
         </label>
             </div>
         </div>
+    <div class="mid-right">
+    <div class="right-content">
+        <div class="right-topic"><p>Linear </p></div>
+        <h4>Senior Product Designer</h4>
+        <div class="right-text">
+        <p class="grey"><img src="../assets/map-pin.svg" alt="" class="img_logo"> Remote . Worldwide </p>&nbsp
+        <p class="grey">Full time</p>&nbsp&nbsp
+        <p>14000Rs-17000Rs</p>
+        </div>
+        <ul class="rolebox">
+            <li class="role-roundshape">Design</li>
+            <li class="role-roundshape">Figma</li>
+            <li class="role-roundshape">React</li>
+        </ul>
+    </div>
+        <div class="right-content">
+        <div class="right-topic"><p>Stripe</p></div>
+        <h4>Staff Front End Engineer</h4>
+        <div class="right-text">
+        <p class="grey"><img src="../assets/map-pin.svg" alt="" class="img_logo"> San Franciso . Hybrid </p>&nbsp
+        <p class="grey">Full time</p>&nbsp&nbsp
+        <p>24000Rs-27000Rs</p>
+        </div>
+        <ul class="rolebox">
+            <li class="role-roundshape">React</li>
+            <li class="role-roundshape">TypeScript</li>
+            <li class="role-roundshape">Payments</li>
+        </ul>
+    </div>
+
+    </div>
     </div>
     <script src="../js/browsejob.js"></script>
 </body>

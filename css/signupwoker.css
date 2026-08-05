@@ -26,7 +26,7 @@ form{
     width:50%;
     height: 100%;
     background-color:white;
-    padding:0 40px;
+    padding:40px 40px;
 }
 
 input{
@@ -108,6 +108,7 @@ button{
     margin-top:20px;
     background-color:#eb5935;
     height:30px;
+    border:none;
 }
 button:hover{
     color:white;

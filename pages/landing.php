@@ -12,9 +12,9 @@
         <img  class="img-top" src="../assets/lavoranovaaa.png" alt="">
       </div>
       <div class="center">
-      <a href="landing.php" class="grey">Home</a>
+      <a href="../pages/landing.php" class="grey">Home</a>
       <a href="../pages/browsejob.php" class="grey">Browse Job</a>
-      <a href="" class="grey">Browse Company</a>
+      <a href="../pages/companies.php" class="grey">Browse Company</a>
       <a href="" class="grey">About</a>
       </div>
       <div class="b">
@@ -123,7 +123,7 @@
                   </div>
                   <p class="role-amt">10000Rs-20000Rs</p>
                   <ul class="rolebox">
-                    <li class="role-roundshape">TypeScript/li>
+                    <li class="role-roundshape">TypeScript</li>
                     <li class="role-roundshape">Payments</li>
                     <li class="role-roundshape">React</li>
                   </ul>
@@ -192,7 +192,7 @@
                   </ul>
                   <hr>
             </div>
-            <!-- sixth -->
+
             <div class="role-box">
               <div class="one">
                 <header>
