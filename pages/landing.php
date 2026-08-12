@@ -18,7 +18,7 @@
       <a href="" class="grey">About</a>
       </div>
       <div class="b">
-        <a href="" class="sign signcommon">Sign in</a>
+        <a href="login.php" class="sign signcommon">Sign in</a>
         <a href="../pages/signupworker.php" class="signup signcommon">Sign up</a>
       </div>
     </nav>

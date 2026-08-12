@@ -15,7 +15,6 @@ nav{
     width: 260px;
     height: 100vh;
     display: flex;
-    align-items: flex-start;
     flex-direction: column;
     gap: 100px;
     padding: 20px;
@@ -23,7 +22,14 @@ nav{
     border-right: 1px solid #ddd;
 
 }
-
+.left{
+    width: 30%;
+}
+.right{
+    width: 70%;
+    margin-left: 265px;
+    padding:30px;
+}
 .img-top{
     width: 180px;
     height: 40px;
@@ -31,4 +37,17 @@ nav{
 a{
     text-decoration: none;
     color: black;
+}
+.center{
+    display: flex;
+    flex-direction:column;
+    gap: 10px;
+    font-size:20px;
+    height:343px;
+}
+.logout{
+    border-top:1px solid #ddd;
+    font-size:20px;
+    padding: 15px 0px 0px 0px;
+
 }

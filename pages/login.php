@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
             session_start();
             $_SESSION['jobseeker_id'] = $row['jobseeker_id'];
             $_SESSION['Full_name'] = $row['Full_name'];
-            header("Location: ../pages/jobseekerdashboard.php");
+            header("Location: ../pages/seekerdashboardhome.php");
             exit();
         } else {
             echo "<script>alert('Invalid email or password!'); window.location.href = 'login.php';</script>";
@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
         </div>
 
         <div class="left">
-            <img src="../assets/luis-villasmil-mlVbMbxfWI4-unsplash.jpg" alt="">
+            <img src="../assets//samantha-borges-ax3lbQfdXP0-unsplash.jpg" alt="">
         </div>
     </div>
 

@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {
 <body>
     <div class="main">
         <div class="left">
-            <img src="../assets/luis-villasmil-mlVbMbxfWI4-unsplash.jpg" alt="">
+            <img src="../assets//samantha-borges-ax3lbQfdXP0-unsplash.jpg" alt="">
         </div>
         <div class="right">
             <img src="../assets/lavoranovaaa.png" alt="">
