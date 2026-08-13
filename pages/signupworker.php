@@ -10,8 +10,18 @@ if (isset($_POST['submit'])) {
     $email = $_POST['mail'];
 
     // Password
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $password = $_POST['password'];
 
+if (strlen($password) < 6) {
+
+    echo "<script>
+            alert('Password must be at least 6 characters.');
+            window.history.back();
+        </script>";
+    exit();
+
+}
+$password = password_hash($password, PASSWORD_DEFAULT);
     // Date of Birth
     $date = $_POST['date'];
 
@@ -19,7 +29,7 @@ if (isset($_POST['submit'])) {
     $phone = $_POST['phone'];
 
     // Gender
-    $gender = $_POST['gender'];
+    $gender = $_POST['gender'] ?? "";
 
     // Address
     $address = $_POST['address'];
@@ -31,32 +41,113 @@ if (isset($_POST['submit'])) {
     // Citizenship Upload
     $citizenship = "";
 
-    
+    if (empty($fullname)) {
+
+        echo "<script>
+                alert('Please enter your full name.');
+                window.history.back();
+            </script>";
+        exit();
+
+    } elseif (empty($email)) {
+
+        echo "<script>
+                alert('Please enter your email.');
+                window.history.back();
+            </script>";
+        exit();
+
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+
+        echo "<script>
+                alert('Please enter a valid email address.');
+                window.history.back();
+            </script>";
+        exit();
+
+    } elseif (empty($password)) {
+
+        echo "<script>
+                alert('Please enter your password.');
+                window.history.back();
+            </script>";
+        exit();
+
+    } elseif (strlen($password) < 6) {
+
+        echo "<script>
+                alert('Password must be at least 6 characters.');
+                window.history.back();
+            </script>";
+        exit();
+
+    } elseif (empty($date)) {
+
+        echo "<script>
+                alert('Please select your date of birth.');
+                window.history.back();
+            </script>";
+        exit();
+
+    } elseif (empty($phone)) {
+
+        echo "<script>
+                alert('Please enter your phone number.');
+                window.history.back();
+            </script>";
+        exit();
+
+    } elseif (!preg_match("/^[0-9]{10}$/", $phone)) {
+
+        echo "<script>
+                alert('Phone number must contain exactly 10 digits.');
+                window.history.back();
+            </script>";
+        exit();
+
+    } elseif (empty($gender)) {
+
+        echo "<script>
+                alert('Please select your gender.');
+                window.history.back();
+            </script>";
+        exit();
+
+    } elseif (empty($address)) {
+
+        echo "<script>
+                alert('Please select your address.');
+                window.history.back();
+            </script>";
+        exit();
+    }
 
     // Insert into database
-    $sql = "INSERT INTO jobseeker
-    (
-        Full_name,
-        email,
-        password,
-        phone,
-        address,
-        Resume,
-        Citizenship
-    )
-    VALUES
-    (
-        '$fullname',
-        '$email',
-        '$password',
-        '$phone',
-        '$address',
-        '$resume',
-        '$citizenship'
-    )";
+$sql = "INSERT INTO jobseeker
+(
+    Full_name,
+    email,
+    password,
+    phone,
+    address,
+    gender,
+    Resume,
+    Citizenship
+)
+VALUES
+(
+    '$fullname',
+    '$email',
+    '$password',
+    '$phone',
+    '$address',
+    '$gender',
+    '$resume',
+    '$citizenship'
+)";
 
     if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('Account created successfully!'); window.location.href = 'login.php';</script>";
+        echo "<script>alert('Account created successfully!'); window.location.href = '../pages/loginseeker.php';</script>";
     } else {
         echo mysqli_error($conn);
     }
@@ -137,7 +228,7 @@ if (isset($_POST['submit'])) {
                 </select>
 
                 <button type="submit" name="submit">Create account</button>
-                <p>Already have an account? <a href="Login.php">Log in</a></p>
+                <p>Already have an account? <a href="../pages/loginseeker.php">Log in</a></p>
             </form>
         </div>
 

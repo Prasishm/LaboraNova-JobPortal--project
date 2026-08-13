@@ -14,9 +14,9 @@
         <img  class="img-top" src="../assets/lavoranovaaa.png" alt="">
     </div>
     <div class="center">
-    <a href="../pages//seekerdashboardhome.php" class="grey">Home</a><br>
-    <a href="../pages//seekerdashboardbrowsejob.php" class="grey">Browse Job</a><br>
-    <a href="../pages//seekerbashboardcompany.php" class="grey">Browse Company</a><br>
+    <a href="../pages/seekerdashboardhome.php" class="grey">Home</a><br>
+    <a href="../pages/seekerdashboardbrowsejob.php" class="grey">Browse Job</a><br>
+    <a href="../pages/seekerbashboardcompany.php" class="grey">Browse Company</a><br>
     </div>
     <a href="../pages/login.php" class="logout">Log out</a><br>
     </nav>

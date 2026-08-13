@@ -171,16 +171,15 @@ function Jobprovider($conn)
         phone VARCHAR(20) NOT NULL UNIQUE,
         email VARCHAR(255) NOT NULL UNIQUE,
         password VARCHAR(255) NOT NULL,
-        company_description VARCHAR(500) NOT NULL,
-        company_registration VARCHAR(255) NOT NULL,
-        subscription_id INT NOT NULL,
-        Admin_id INT DEFAULT NULL,
+        company_description VARCHAR(500) DEFAULT NULL,
+        company_registration VARCHAR(255) DEFAULT NULL,
+        subscription_id INT DEFAULT NULL,
+
 
         FOREIGN KEY (subscription_id)
-            REFERENCES subscription(subscription_id),
+            REFERENCES subscription(subscription_id)
 
-        FOREIGN KEY (Admin_id)
-            REFERENCES Admin(Admin_id)
+
     )";
 
     $res = mysqli_query($conn, $sql);
@@ -206,6 +205,7 @@ function Jobseeker($conn)
         password VARCHAR(255) NOT NULL,
         phone VARCHAR(20) NOT NULL UNIQUE,
         address VARCHAR(255) NOT NULL,
+        gender VARCHAR(255) NOT NULL,
         Language VARCHAR(255) DEFAULT NULL,
         Resume VARCHAR(255) DEFAULT NULL,
         Citizenship VARCHAR(255) DEFAULT NULL,
@@ -214,7 +214,6 @@ function Jobseeker($conn)
         skill_id INT DEFAULT NULL,
         social_id INT DEFAULT NULL,
         training_id INT DEFAULT NULL,
-        Admin_id INT DEFAULT NULL,
 
         FOREIGN KEY (skill_id)
             REFERENCES skill(skill_id),
@@ -223,10 +222,9 @@ function Jobseeker($conn)
             REFERENCES social(social_id),
 
         FOREIGN KEY (training_id)
-            REFERENCES training(training_id),
+            REFERENCES training(training_id)
 
-        FOREIGN KEY (Admin_id)
-            REFERENCES Admin(Admin_id)
+
     )";
 
     $res = mysqli_query($conn, $sql);
@@ -261,16 +259,15 @@ function Job($conn)
         office_time VARCHAR(100) NOT NULL,
         due_date DATE NOT NULL,
         experience VARCHAR(100) NOT NULL,
-        Admin_id INT DEFAULT NULL,
+        
 
         FOREIGN KEY (jobprovider_id)
             REFERENCES Jobprovider(jobprovider_id),
 
         FOREIGN KEY (skill_id)
-            REFERENCES skill(skill_id),
+            REFERENCES skill(skill_id)
 
-        FOREIGN KEY (Admin_id)
-            REFERENCES Admin(Admin_id)
+
     )";
 
     $res = mysqli_query($conn, $sql);
