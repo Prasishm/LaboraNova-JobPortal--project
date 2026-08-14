@@ -15,7 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $job_description = $_POST['job_description'];
     $no_of_opening   = $_POST['no_of_opening'];
     $jobprovider_id  = $_SESSION['jobprovider_id'];
-    $skill_id        = $_POST['skill_id'];
+    $skill_name      = $_POST['skill_name'];
+    $skill_name = $_POST['skill_name'];
     $language        = $_POST['language'];
     $job_location    = $_POST['job_location'];
     $position        = $_POST['position'];
@@ -26,52 +27,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $due_date        = $_POST['due_date'];
     $experience      = $_POST['experience'];
     
-    $sql = "INSERT INTO job (
-                job_title,
-                job_description,
-                no_of_opening,
-                jobprovider_id,
-                skill_id,
-                language,
-                job_location,
-                position,
-                salary,
-                job_type,
-                qualification,
-                office_time,
-                due_date,
-                experience
+$sql = "INSERT INTO job (
+    job_title,
+    job_description,
+    no_of_opening,
+    jobprovider_id,
+    skill_name,
+    language,
+    job_location,
+    position,
+    salary,
+    job_type,
+    qualification,
+    office_time,
+    due_date,
+    experience
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-            )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$stmt = $conn->prepare($sql);
 
-    $stmt = $conn->prepare($sql);
+if (!$stmt) {
+    die("Prepare failed: " . $conn->error);
+}
 
-    $stmt->bind_param(
-        "ssiiisssssssss",
-        $job_title,
-        $job_description,
-        $no_of_opening,
-        $jobprovider_id,
-        $skill_id,
-        $language,
-        $job_location,
-        $position,
-        $salary,
-        $job_type,
-        $qualification,
-        $office_time,
-        $due_date,
-        $experience
-    );
+$stmt->bind_param(
+    "ssiissssssssss",
+    $job_title,
+    $job_description,
+    $no_of_opening,
+    $jobprovider_id,
+    $skill_name,
+    $language,
+    $job_location,
+    $position,
+    $salary,
+    $job_type,
+    $qualification,
+    $office_time,
+    $due_date,
+    $experience
+);
 
-    if ($stmt->execute()) {
-        ?>
-        <script>alert("Job posted successfully!")</script>
-        <?php
-    } else {
-        echo "Error: " . $stmt->error;
-    }
+if ($stmt->execute()) {
+    echo "<script>alert('Job posted successfully!');</script>";
+} else {
+    die("Execute failed: " . $stmt->error);
+}
 
     $stmt->close();
 }
@@ -101,96 +102,50 @@ $conn->close();
     <div class="dashboard">
 
 
-        <!-- SIDEBAR -->
+       <aside class="sidebar">
 
-        <aside class="sidebar">
+        <div class="logo">
 
-            <div class="logo">
+            <span><img src="../assets/lavoranovaaa.png" alt=""></span>
+        </div>
 
-                <div class="logo-icon">
-                    L
-                </div>
+        <nav class="navigation">
 
-                <span>LABORANOVA</span>
+            <a href="../pages/providerhome.php" class="nav-item active">
 
-            </div>
+                <span>Home</span>
+            </a>
 
+            <a href="../pages/providerpostjob.php" class="nav-item">
 
-            <nav class="navigation">
+                <span>Post Job</span>
+            </a>
 
-                <a href="../pages/providerhome.php" class="nav-item">
+            <a href="../pages/providerapplication.php" class="nav-item">
 
-                    <span class="nav-icon">
-                        ⌂
-                    </span>
+                <span>Applications</span>
+            </a>
 
-                    <span>
-                        Home
-                    </span>
+        </nav>
 
-                </a>
+        <div class="sidebar-bottom">
 
-
-                <a href="post-job.html"
-                    class="nav-item active">
-
-                    <span class="nav-icon">
-                        ＋
-                    </span>
-
-                    <span>
-                        Post Job
-                    </span>
-
-                </a>
+            <div class="provider-small">
 
 
-                <a href="candidates.html"
-                    class="nav-item">
-
-                    <span class="nav-icon">
-                        ♙
-                    </span>
-
-                    <span>
-                        Candidates
-                    </span>
-
-                </a>
-
-            </nav>
-
-
-            <div class="sidebar-bottom">
-
-                <div class="provider-small">
-
-                    <div class="provider-avatar">
-                        JP
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            Job Provider
-                        </strong>
-
-                        <small>
-                            Employer
-                        </small>
-
-                    </div>
-
-                </div>
-
-
-                <div class="logout">
-                    ↪ &nbsp; Log out
+                <div>
+                    <strong><?php echo $_SESSION ['company_name']?></strong>
+                    <small>Company</small>
                 </div>
 
             </div>
 
-        </aside>
+            <div class="logout"><a href="../pages/logincompany.php">Log out</a>
+                </div>
+
+        </div>
+
+    </aside>
 
 
         <!-- MAIN -->
@@ -213,25 +168,7 @@ $conn->close();
                 </div>
 
 
-                <div class="profile-mini">
 
-                    <div class="profile-avatar">
-                        JP
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            Job Provider
-                        </strong>
-
-                        <span>
-                            Employer
-                        </span>
-
-                    </div>
-
-                </div>
 
             </div>
 
@@ -287,7 +224,7 @@ $conn->close();
                             <input
                                 type="text"
                                 id="skill"
-                                name="skill_id"
+                                name="skill_name"
                                 placeholder="e.g. HTML, CSS, JavaScript"
                                 required>
                         </div>

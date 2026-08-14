@@ -1,3 +1,5 @@
+<?php
+session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,17 +11,47 @@
 <body>
         <div class="main">
     <div class="left">
-    <nav>
-    <div class="top">
-        <img  class="img-top" src="../assets/lavoranovaaa.png" alt="">
-    </div>
-    <div class="center">
-    <a href="../pages/seekerdashboardhome.php" class="grey">Home</a><br>
-    <a href="../pages/seekerdashboardbrowsejob.php" class="grey">Browse Job</a><br>
-    <a href="../pages/seekerbashboardcompany.php" class="grey">Browse Company</a><br>
-    </div>
-    <a href="../pages/login.php" class="logout">Log out</a><br>
-    </nav>
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <span><img src="../assets/lavoranovaaa.png" alt=""></span>
+        </div>
+
+        <nav class="navigation">
+
+            <a href="../pages/providerhome.php" class="nav-item active">
+
+                <span>Home</span>
+            </a>
+
+            <a href="../pages/seekerdashboardbrowsejob.php" class="nav-item">
+
+                <span>Browse Job</span>
+            </a>
+
+
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="provider-small">
+
+
+                <div>
+                    <strong><?php echo $_SESSION ['Full_name']?></strong>
+                    <small>Employee</small>
+                </div>
+
+            </div>
+
+            <div class="logout"><a href="../pages/logincompany.php">Log out</a>
+                </div>
+
+        </div>
+
+    </aside>
     </div>
     <div class="right">
 
@@ -33,10 +65,10 @@
         </div>
 
         <div class="profile">
-            <div class="profile-avatar">JS</div>
+
 
             <div>
-                <strong>Job Seeker</strong>
+                <strong><?php echo $_SESSION ['Full_name']?></strong>
                 <span>Candidate</span>
             </div>
         </div>
@@ -46,67 +78,10 @@
 
 
 
-    <div class="search-box">
-
-        <div class="search-input">
-            <span> <img src="../assets//search.svg" alt="" class="icon"> </span>
-            <input type="text" placeholder="Search for jobs, skills or keywords">
-        </div>
-
-        <div class="location-input">
-            <span><img src="../assets//map-pin.svg" alt="" class="icon"> </span>
-            <input type="text" placeholder="Location">
-        </div>
-
-        <button class="search-btn">
-            Search Jobs
-        </button>
-
-    </div>
 
 
-    <div class="stats">
-
-        <div class="stat-card">
-            <div class="stat-icon orange"><img src="../assets//briefcase-2.svg" alt=""></div>
-
-            <div>
-                <p>Applied Jobs</p>
-                <h2>12</h2>
-            </div>
-        </div>
 
 
-        <div class="stat-card">
-            <div class="stat-icon orange"><img src="../assets//star.svg" alt=""></div>
-
-            <div>
-                <p>Saved Jobs</p>
-                <h2>8</h2>
-            </div>
-        </div>
-
-
-        <div class="stat-card">
-            <div class="stat-icon orange"><img src="../assets//code.svg" alt=""></div>
-
-            <div>
-                <p>Skills</p>
-                <h2>5</h2>
-            </div>
-        </div>
-
-
-        <div class="stat-card">
-            <div class="stat-icon orange"><img src="../assets//calendar-event.svg" alt=""></div>
-
-            <div>
-                <p>Experience</p>
-                <h2>2 Year</h2>
-            </div>
-        </div>
-
-    </div>
 
 
 
@@ -114,7 +89,7 @@
 
         <div class="section-title">
             <h2>About Me</h2>
-            <a href="#">Edit Profile</a>
+            <a href="../pages/seekereditprofile.php">Edit Profile</a>
         </div>
 
 
@@ -123,12 +98,10 @@
 
             <div class="seeker-about">
 
-                <div class="large-avatar">
-                    JS
-                </div>
+              
 
                 <div>
-                    <h2>Job Seeker</h2>
+                    <h2><?php echo $_SESSION ['Full_name']?></h2>
                     <p>Frontend Developer</p>
 
                     <div class="seeker-location">

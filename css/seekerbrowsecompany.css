@@ -76,7 +76,7 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
-    width: 260px;
+    width: 280px;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -210,7 +210,7 @@ h1{
 }
 
 .company{
-    margin-top:100px;
+    margin-top:20px;
 }
 .company .grey{
     margin-bottom:20px;
@@ -290,4 +290,32 @@ hr{
     justify-content: center;
     align-items: center;
     display: flex;
+}
+.sidebar-bottom {
+    margin-top: auto;
+}
+.provider-small {
+    border-top: 1px solid #e5e1df;
+
+    padding: 20px 8px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+.provider-small strong {
+    display: block;
+    font-size: 14px;
+}
+
+
+.provider-small small {
+    display: block;
+
+    color: #8993a0;
+
+    font-size: 12px;
+
+    margin-top: 3px;
 }

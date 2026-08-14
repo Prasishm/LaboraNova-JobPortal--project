@@ -49,15 +49,25 @@ $password = password_hash($password, PASSWORD_DEFAULT);
             </script>";
         exit();
 
-    } elseif (empty($email)) {
+    } 
+   elseif (empty($email)) {
 
-        echo "<script>
-                alert('Please enter your email.');
-                window.history.back();
-            </script>";
-        exit();
+    echo "<script>
+            alert('Please enter your email.');
+            window.history.back();
+          </script>";
+    exit();
 
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+} elseif (!str_ends_with(strtolower($email), '@gmail.com')) {
+
+    echo "<script>
+            alert('Please enter a valid Gmail address (example@gmail.com).');
+            window.history.back();
+          </script>";
+    exit();
+}
+
+     elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
         echo "<script>
                 alert('Please enter a valid email address.');

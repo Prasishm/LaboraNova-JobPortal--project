@@ -1,0 +1,545 @@
+/* =========================================================
+   LABORANOVA ADMIN DASHBOARD
+   Shared CSS for:
+   1. admin.php
+   2. jobprovider.php
+   ========================================================= */
+
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ================= BODY ================= */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f7f9fb;
+    color: #1e293b;
+}
+
+
+/* ================= MAIN LAYOUT ================= */
+
+.main {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* ================= LEFT SIDEBAR ================= */
+
+.left {
+    width: 260px;
+    flex-shrink: 0;
+}
+
+
+/* ================= SIDEBAR NAVIGATION ================= */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 260px;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 24px 20px;
+
+    background: #ffffff;
+
+    border-right: 1px solid #e5e7eb;
+
+    z-index: 100;
+}
+
+
+/* ================= LOGO ================= */
+
+.top {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 50px;
+
+    padding: 0 5px;
+}
+
+
+.img-top {
+    width: 180px;
+    height: 42px;
+
+    object-fit: contain;
+}
+
+
+/* ================= NAVIGATION LINKS ================= */
+
+.center {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+
+    flex: 1;
+}
+
+
+.center a {
+    color: #334155;
+
+    font-size: 18px;
+
+    text-decoration: none;
+
+    padding: 10px 12px;
+
+    border-radius: 8px;
+
+    transition: all 0.2s ease;
+
+    font-weight: 500;
+}
+
+
+/* Hover */
+
+.center a:hover {
+    color: #f15a3a;
+
+    background: #fff5f2;
+}
+
+
+/* Active Page */
+
+.center a.active {
+    color: #f15a3a;
+    font-weight: 700;
+}
+
+
+/* ================= LOGOUT ================= */
+
+.logout {
+    border-top: 1px solid #e5e7eb;
+
+    padding: 20px 10px 5px 10px;
+
+    font-size: 20px;
+
+    color: #111827;
+
+    text-decoration: none;
+
+    font-weight: 500;
+
+    transition: color 0.2s ease;
+}
+
+
+.logout:hover {
+    color: #ef4444;
+}
+
+
+/* ================= RIGHT MAIN CONTENT ================= */
+
+.right {
+    flex: 1;
+
+    padding: 30px 40px;
+
+    min-height: 100vh;
+
+    min-width: 0;
+}
+
+
+/* ================= CONTENT CARD ================= */
+
+.content-card {
+    background: #ffffff;
+
+    border: 1px solid #edf0f2;
+
+    border-radius: 18px;
+
+    padding: 26px 28px;
+
+    margin-bottom: 26px;
+
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+
+/* ================= PAGE TITLE ================= */
+
+.card-title-standard {
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #111827;
+
+    margin-bottom: 20px;
+}
+
+
+/* ================= TABLE CONTAINER ================= */
+
+.table-responsive {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+
+/* ================= DATA TABLE ================= */
+
+.simple-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    text-align: left;
+
+    font-size: 14px;
+}
+
+
+/* ================= TABLE HEADER ================= */
+
+.simple-table th {
+    background: #f8fafc;
+
+    color: #64748b;
+
+    font-weight: 700;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.6px;
+
+    padding: 14px 16px;
+
+    border-bottom: 1px solid #eef1f5;
+}
+
+
+/* ================= TABLE DATA ================= */
+
+.simple-table td {
+    padding: 16px;
+
+    border-bottom: 1px solid #f1f5f9;
+
+    color: #1e293b;
+
+    vertical-align: middle;
+}
+
+
+/* ================= TABLE HOVER ================= */
+
+.simple-table tr:hover {
+    background: #fafbfc;
+}
+
+
+/* ================= USER / COMPANY CELL ================= */
+
+.table-user-cell {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.table-user-cell strong {
+    font-size: 14px;
+
+    color: #111827;
+}
+
+
+/* ================= AVATAR ================= */
+
+.user-avatar-circle {
+    width: 46px;
+    height: 46px;
+
+    border-radius: 50%;
+
+    background: #1e293b;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+/* Magenta Avatar */
+
+.user-avatar-circle.avatar-magenta {
+    background: #831843;
+}
+
+
+/* ================= TABLE VIEW BUTTON ================= */
+
+.btn-table-view {
+    background: #ffffff;
+
+    border: 1px solid #d1d5db;
+
+    color: #111827;
+
+    font-weight: 600;
+
+    font-size: 13px;
+
+    padding: 7px 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+
+/* View Button Hover */
+
+.btn-table-view:hover {
+    background: #f3f4f6;
+
+    border-color: #9ca3af;
+}
+
+
+/* ================= MODAL OVERLAY ================= */
+
+.modal-overlay {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.4);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1000;
+}
+
+
+/* ================= MODAL BOX ================= */
+
+.modal-box {
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    width: 90%;
+
+    max-width: 480px;
+
+    padding: 24px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ================= MODAL TITLE ================= */
+
+.modal-box h3 {
+    font-size: 18px;
+
+    margin-bottom: 12px;
+
+    color: #111827;
+}
+
+
+/* ================= MODAL TEXT ================= */
+
+.modal-box p {
+    font-size: 14px;
+
+    color: #4b5563;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+
+/* ================= MODAL CLOSE BUTTON ================= */
+
+.modal-close-btn {
+    background: #111827;
+
+    color: #ffffff;
+
+    padding: 8px 18px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+
+.modal-close-btn:hover {
+    background: #374151;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+
+/* ================= TABLET ================= */
+
+@media (max-width: 900px) {
+
+    .left {
+        width: 200px;
+    }
+
+    nav {
+        width: 200px;
+    }
+
+    .right {
+        flex: 1;
+
+        padding: 20px;
+    }
+
+    .top {
+        margin-bottom: 35px;
+    }
+
+    .img-top {
+        width: 150px;
+    }
+
+    .center a {
+        font-size: 16px;
+    }
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 650px) {
+
+    .left {
+        width: 180px;
+    }
+
+    nav {
+        width: 180px;
+
+        padding: 20px 15px;
+    }
+
+    .right {
+        padding: 15px;
+    }
+
+    .content-card {
+        padding: 20px 15px;
+
+        border-radius: 14px;
+    }
+
+    .card-title-standard {
+        font-size: 18px;
+    }
+
+    .simple-table {
+        min-width: 650px;
+    }
+
+}
+
+
+/* ================= VERY SMALL SCREEN ================= */
+
+@media (max-width: 480px) {
+
+    .left {
+        width: 150px;
+    }
+
+    nav {
+        width: 150px;
+
+        padding: 18px 10px;
+    }
+
+    .img-top {
+        width: 125px;
+    }
+
+    .center {
+        gap: 10px;
+    }
+
+    .center a {
+        font-size: 14px;
+
+        padding: 8px;
+    }
+
+    .logout {
+        font-size: 16px;
+
+        padding-left: 8px;
+    }
+
+    .right {
+        padding: 10px;
+    }
+
+}

@@ -1,3 +1,8 @@
+<?php 
+session_start();
+include "../components/bar.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +14,7 @@
 <body>
         <div class="main">
     <div class="left">
+        
     <nav>
     <div class="top">
         <img  class="img-top" src="../assets/lavoranovaaa.png" alt="">
@@ -16,9 +22,25 @@
     <div class="center">
     <a href="../pages/seekerdashboardhome.php" class="grey">Home</a><br>
     <a href="../pages/seekerdashboardbrowsejob.php" class="grey">Browse Job</a><br>
-    <a href="../pages/seekerbashboardcompany.php" class="grey">Browse Company</a><br>
+    <!-- <a href="../pages/seekerbashboardcompany.php" class="grey">Browse Company</a><br> -->
     </div>
-    <a href="../pages/login.php" class="logout">Log out</a><br>
+            <div class="sidebar-bottom">
+
+            <div class="provider-small">
+
+
+                <div>
+                    <strong><?php echo $_SESSION ['Full_name']?></strong>
+                    <small>Employer</small>
+                </div>
+
+            </div>
+
+            <div class="logout"><a href="../pages/logincompany.php">Log out</a>
+                </div>
+
+        </div>
+
     </nav>
     </div>
     <div class="right">
