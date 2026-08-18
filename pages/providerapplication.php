@@ -164,9 +164,6 @@ $total_applications = $result->num_rows;
 
 
 
-        <!-- =================================
-         MAIN CONTENT
-         ================================= -->
 
         <main class="main-content">
 

@@ -13,7 +13,7 @@ $sql = "
         company_name,
         email,
         phone,
-        company_description,
+
         company_registration
     FROM jobprovider
     ORDER BY jobprovider_id DESC
@@ -159,7 +159,6 @@ $totalProviders = mysqli_num_rows($result);
                             <th>COMPANY</th>
                             <th>EMAIL</th>
                             <th>PHONE</th>
-                            <th>DESCRIPTION</th>
                             <th>ACTIONS</th>
                         </tr>
                     </thead>
@@ -184,12 +183,6 @@ $totalProviders = mysqli_num_rows($result);
                                 
                                     $row['phone']
                                 ;
-                            $description =
-                                !empty($row['company_description'])
-                                ? 
-                                    $row['company_description']
-                                
-                                : "N/A";
                     ?>
                         <tr>
                             <!-- COMPANY -->
@@ -239,13 +232,7 @@ $totalProviders = mysqli_num_rows($result);
 
                             <!-- DESCRIPTION -->
 
-                            <td>
-
-                                <?php
-                                echo $description;
-                                ?>
-
-                            </td>
+                            
 
 
 

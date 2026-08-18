@@ -209,11 +209,9 @@ nav {
 
 .simple-table {
     width: 100%;
-
-    border-collapse: collapse;
-
+    border-collapse: separate;
+    border-spacing: 0;
     text-align: left;
-
     font-size: 14px;
 }
 
@@ -234,11 +232,24 @@ nav {
     letter-spacing: 0.6px;
 
     padding: 14px 16px;
-
-    border-bottom: 1px solid #eef1f5;
+    
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+}
+.card-title-standard{
+    margin-bottom: 30px;
+}
+.simple-table th:first-child {
+    border-left: 1px solid #e5e7eb;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
 }
 
-
+.simple-table th:last-child {
+    border-right: 1px solid #e5e7eb;
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
 /* ================= TABLE DATA ================= */
 
 .simple-table td {
@@ -431,115 +442,6 @@ nav {
 }
 
 
-/* =========================================================
-   RESPONSIVE DESIGN
-   ========================================================= */
 
 
-/* ================= TABLET ================= */
 
-@media (max-width: 900px) {
-
-    .left {
-        width: 200px;
-    }
-
-    nav {
-        width: 200px;
-    }
-
-    .right {
-        flex: 1;
-
-        padding: 20px;
-    }
-
-    .top {
-        margin-bottom: 35px;
-    }
-
-    .img-top {
-        width: 150px;
-    }
-
-    .center a {
-        font-size: 16px;
-    }
-
-}
-
-
-/* ================= MOBILE ================= */
-
-@media (max-width: 650px) {
-
-    .left {
-        width: 180px;
-    }
-
-    nav {
-        width: 180px;
-
-        padding: 20px 15px;
-    }
-
-    .right {
-        padding: 15px;
-    }
-
-    .content-card {
-        padding: 20px 15px;
-
-        border-radius: 14px;
-    }
-
-    .card-title-standard {
-        font-size: 18px;
-    }
-
-    .simple-table {
-        min-width: 650px;
-    }
-
-}
-
-
-/* ================= VERY SMALL SCREEN ================= */
-
-@media (max-width: 480px) {
-
-    .left {
-        width: 150px;
-    }
-
-    nav {
-        width: 150px;
-
-        padding: 18px 10px;
-    }
-
-    .img-top {
-        width: 125px;
-    }
-
-    .center {
-        gap: 10px;
-    }
-
-    .center a {
-        font-size: 14px;
-
-        padding: 8px;
-    }
-
-    .logout {
-        font-size: 16px;
-
-        padding-left: 8px;
-    }
-
-    .right {
-        padding: 10px;
-    }
-
-}
