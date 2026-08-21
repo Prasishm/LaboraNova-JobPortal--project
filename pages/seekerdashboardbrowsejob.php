@@ -724,13 +724,13 @@ function openJob(jobId)
         );
 
 
-    // Put job details inside modal
+    // job detail model ma halcha
 
     modalContent.innerHTML =
         job.innerHTML;
 
 
-    // Show modal
+    // model dekhaune
 
     document.getElementById(
         "jobModal"

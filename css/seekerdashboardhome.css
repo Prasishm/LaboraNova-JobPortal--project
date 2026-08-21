@@ -219,12 +219,16 @@ a{
     margin-bottom: 30px;
 }
 
-
-
-
-.section-title {
+.section-title a{
     display: flex;
-    justify-content: space-between;
+    float: right;
+}
+
+a{
+    color:black;
+}
+.section-title {
+
     align-items: center;
     margin-bottom: 20px;
 }

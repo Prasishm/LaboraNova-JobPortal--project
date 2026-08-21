@@ -7,35 +7,91 @@ if (isset($_POST['submit'])) {
     $email = trim($_POST['mail']);
     $password = $_POST['password'];
 
-    // Check Job Seeker
+    // ==========================================
+    // 1. CHECK ADMIN LOGIN
+    // ==========================================
 
-    // If not Job Seeker, check Job Provider
-    $sql = "SELECT * FROM jobprovider WHERE email = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "s", $email);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
+    $admin_sql = "SELECT * FROM admin WHERE email = ?";
+    $admin_stmt = mysqli_prepare($conn, $admin_sql);
 
-    if ($result && mysqli_num_rows($result) > 0) {
+    mysqli_stmt_bind_param($admin_stmt, "s", $email);
+    mysqli_stmt_execute($admin_stmt);
 
-        $row = mysqli_fetch_assoc($result);
+    $admin_result = mysqli_stmt_get_result($admin_stmt);
 
-        if (password_verify($password, $row['password'])) {
+    if ($admin_result && mysqli_num_rows($admin_result) > 0) {
 
-            $_SESSION['jobprovider_id'] = $row['jobprovider_id'];
-            $_SESSION['company_name'] = $row['company_name'];
+        $admin = mysqli_fetch_assoc($admin_result);
 
-            header("Location: ../pages/providerhome.php");
+        // ADMIN PASSWORD IS NOT HASHED
+        if ($password === $admin['password']) {
+
+            $_SESSION['admin_id'] = $admin['Admin_id'];
+            $_SESSION['Admin_name'] = $admin['Admin_name'];
+            $_SESSION['admin_email'] = $admin['email'];
+
+            // Go to Admin Dashboard
+            header("Location: ../pages/admin.php");
             exit();
+
         } else {
+
             echo "<script>
                     alert('Invalid email or password!');
-                    window.location.href = 'login.php';
-                </script>";
+                    window.location.href = 'logincompany.php';
+                  </script>";
             exit();
         }
     }
 
+
+    // ==========================================
+    // 2. CHECK COMPANY / JOB PROVIDER LOGIN
+    // ==========================================
+
+    $company_sql = "SELECT * FROM jobprovider WHERE email = ?";
+    $company_stmt = mysqli_prepare($conn, $company_sql);
+
+    mysqli_stmt_bind_param($company_stmt, "s", $email);
+    mysqli_stmt_execute($company_stmt);
+
+    $company_result = mysqli_stmt_get_result($company_stmt);
+
+    if ($company_result && mysqli_num_rows($company_result) > 0) {
+
+        $company = mysqli_fetch_assoc($company_result);
+
+        // COMPANY PASSWORD IS HASHED
+        if (password_verify($password, $company['password'])) {
+
+            $_SESSION['jobprovider_id'] = $company['jobprovider_id'];
+            $_SESSION['company_name'] = $company['company_name'];
+            $_SESSION['jobprovider_email'] = $company['email'];
+
+            // Go to Company Dashboard
+            header("Location: ../pages/providerhome.php");
+            exit();
+
+        } else {
+
+            echo "<script>
+                    alert('Invalid email or password!');
+                    window.location.href = 'logincompany.php';
+                  </script>";
+            exit();
+        }
+    }
+
+
+    // ==========================================
+    // 3. EMAIL NOT FOUND
+    // ==========================================
+
+    echo "<script>
+            alert('Invalid email or password!');
+            window.location.href = 'logincompany.php';
+          </script>";
+    exit();
 }
 ?>
 

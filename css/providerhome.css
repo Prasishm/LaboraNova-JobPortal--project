@@ -217,67 +217,6 @@ a{
 }
 
 
-/* ================= STATISTICS ================= */
-
-.stats {
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 20px;
-
-    margin-bottom: 32px;
-}
-
-
-.stat-card {
-    background: #ffffff;
-
-    border-radius: 14px;
-
-    padding: 22px;
-
-    display: flex;
-    align-items: center;
-
-    gap: 16px;
-
-    box-shadow: 0 4px 18px rgba(50, 30, 20, 0.04);
-}
-
-
-.stat-icon {
-    width: 55px;
-    height: 55px;
-
-    border-radius: 12px;
-
-    background: #fff0d9;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 23px;
-}
-
-
-.stat-info span {
-    display: block;
-
-    color: #718096;
-
-    font-size: 13px;
-
-    margin-bottom: 5px;
-}
-
-
-.stat-info strong {
-    display: block;
-
-    font-size: 25px;
-}
 
 
 /* ================= CARD ================= */

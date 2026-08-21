@@ -5,7 +5,7 @@ session_start();?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Seeker</title>
     <link rel="stylesheet" href="../css//seekerdashboardhome.css" />
 </head>
 <body>
@@ -69,27 +69,17 @@ session_start();?>
 
             <div>
                 <strong><?php echo $_SESSION ['Full_name']?></strong>
-                <span>Candidate</span>
+                <span>Employee</span>
             </div>
         </div>
 
     </div>
 
-
-
-
-
-
-
-
-
-
-
     <div class="seeker-profile">
 
         <div class="section-title">
-            <h2>About Me</h2>
-            <a href="../pages/seekereditprofile.php">Edit Profile</a>
+           
+            <a href="../pages/editprofile.php">Edit Profile</a>
         </div>
 
 

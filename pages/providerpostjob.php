@@ -269,7 +269,7 @@ $conn->close();
                                 type="text"
                                 id="salary"
                                 name="salary"
-                                placeholder="e.g. Rs. 30,000 - Rs. 50,000"
+                                placeholder="e.g. Rs. 30,000"
                                 required>
                         </div>
 

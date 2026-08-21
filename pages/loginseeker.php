@@ -23,13 +23,14 @@ if (isset($_POST['submit'])) {
 
         $admin = mysqli_fetch_assoc($admin_result);
 
-        // If admin password is stored as a hashed password
-        if (password_verify($password, $admin['password'])) {
+        // ADMIN PASSWORD IS PLAIN TEXT
+        if ($password === $admin['password']) {
 
             $_SESSION['admin_id'] = $admin['Admin_id'];
             $_SESSION['Admin_name'] = $admin['Admin_name'];
             $_SESSION['admin_email'] = $admin['email'];
 
+            // Go to Admin Dashboard
             header("Location: ../pages/admin.php");
             exit();
 
@@ -43,28 +44,31 @@ if (isset($_POST['submit'])) {
         }
     }
 
+
     // ==========================================
     // 2. CHECK JOB SEEKER LOGIN
     // ==========================================
 
-    $sql = "SELECT * FROM jobseeker WHERE email = ?";
-    $stmt = mysqli_prepare($conn, $sql);
+    $seeker_sql = "SELECT * FROM jobseeker WHERE email = ?";
+    $seeker_stmt = mysqli_prepare($conn, $seeker_sql);
 
-    mysqli_stmt_bind_param($stmt, "s", $email);
-    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_param($seeker_stmt, "s", $email);
+    mysqli_stmt_execute($seeker_stmt);
 
-    $result = mysqli_stmt_get_result($stmt);
+    $seeker_result = mysqli_stmt_get_result($seeker_stmt);
 
-    if ($result && mysqli_num_rows($result) > 0) {
+    if ($seeker_result && mysqli_num_rows($seeker_result) > 0) {
 
-        $row = mysqli_fetch_assoc($result);
+        $seeker = mysqli_fetch_assoc($seeker_result);
 
-        if (password_verify($password, $row['password'])) {
+        // JOB SEEKER PASSWORD IS HASHED
+        if (password_verify($password, $seeker['password'])) {
 
-            $_SESSION['jobseeker_id'] = $row['jobseeker_id'];
-            $_SESSION['Full_name'] = $row['Full_name'];
-            $_SESSION['jobseeker_email'] = $row['email'];
+            $_SESSION['jobseeker_id'] = $seeker['jobseeker_id'];
+            $_SESSION['Full_name'] = $seeker['Full_name'];
+            $_SESSION['jobseeker_email'] = $seeker['email'];
 
+            // Go to Job Seeker Dashboard
             header("Location: ../pages/seekerdashboardhome.php");
             exit();
 
@@ -78,6 +82,7 @@ if (isset($_POST['submit'])) {
         }
     }
 
+
     // ==========================================
     // 3. EMAIL NOT FOUND
     // ==========================================
@@ -89,6 +94,7 @@ if (isset($_POST['submit'])) {
     exit();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

@@ -80,65 +80,7 @@ session_start();
         </div>
 
 
-        <!-- STATISTICS -->
-        <div class="stats">
 
-            <div class="stat-card">
-
-                <div class="stat-icon">
-                    💼
-                </div>
-
-                <div class="stat-info">
-                    <span>Jobs Posted</span>
-                    <strong>6</strong>
-                </div>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <div class="stat-icon">
-                    ♙
-                </div>
-
-                <div class="stat-info">
-                    <span>Total Applicants</span>
-                    <strong>128</strong>
-                </div>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <div class="stat-icon">
-                    ✓
-                </div>
-
-                <div class="stat-info">
-                    <span>Interviews Scheduled</span>
-                    <strong>5</strong>
-                </div>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <div class="stat-icon">
-                    ◷
-                </div>
-
-                <div class="stat-info">
-                    <span>Active Jobs</span>
-                    <strong>4</strong>
-                </div>
-
-            </div>
-
-        </div>
 
 
         <!-- RECENT JOBS -->
@@ -154,7 +96,7 @@ session_start();
                     </p>
                 </div>
 
-                <a href="post-job.html" class="view-link">
+                <a href="../pages/providerpostjob.php" class="view-link">
                     Post New Job
                 </a>
 

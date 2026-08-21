@@ -37,25 +37,7 @@ if (!$result) {
 $totalProviders = mysqli_num_rows($result);
 
 
-/*
-    Create company initials
-*/
 
-function getInitials($name)
-{
-    $words = explode(" ", trim($name));
-
-    if (count($words) >= 2) {
-
-        return strtoupper(
-            substr($words[0], 0, 1) .
-            substr($words[1], 0, 1)
-        );
-
-    }
-
-    return strtoupper(substr($name, 0, 2));
-}
 
 ?>
 
@@ -174,95 +156,46 @@ function getInitials($name)
                     <thead>
 
                         <tr>
-
                             <th>COMPANY</th>
-
                             <th>EMAIL</th>
-
                             <th>PHONE</th>
-
                             <th>DESCRIPTION</th>
-
                             <th>ACTIONS</th>
-
                         </tr>
-
                     </thead>
-
-
-
                     <tbody>
-
-
                     <?php
-
-
                     if ($totalProviders > 0) {
-
-
                         while ($row = mysqli_fetch_assoc($result)) {
-
-
                             /*
                                 Correct primary key
                             */
-
                             $providerId =
                                 (int)$row['jobprovider_id'];
-
-
                             $companyName =
-                                htmlspecialchars(
+                                
                                     $row['company_name']
-                                );
-
-
+                                ;
                             $email =
-                                htmlspecialchars(
+                                
                                     $row['email']
-                                );
-
-
+                                ;
                             $phone =
-                                htmlspecialchars(
+                                
                                     $row['phone']
-                                );
-
-
+                                ;
                             $description =
                                 !empty($row['company_description'])
-                                ? htmlspecialchars(
+                                ? 
                                     $row['company_description']
-                                )
+                                
                                 : "N/A";
-
-
-                            $initials =
-                                getInitials(
-                                    $row['company_name']
-                                );
-
-
                     ?>
-
-
                         <tr>
-
-
                             <!-- COMPANY -->
-
                             <td>
-
                                 <div class="table-user-cell">
-
-
-                                    <div class="user-avatar-circle">
-
-                                        <?php
-                                        echo $initials;
-                                        ?>
-
-                                    </div>
+                                    
 
 
                                     <strong>

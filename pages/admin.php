@@ -28,28 +28,13 @@ if (!$result) {
 }
 
 
-/*
-    Count total jobseekers
-*/
+
+    // jobseeker total count
+
 $totalJobseekers = mysqli_num_rows($result);
 
 
-/*
-    Function to create initials
-*/
-function getInitials($name)
-{
-    $words = explode(" ", trim($name));
 
-    if (count($words) >= 2) {
-        return strtoupper(
-            substr($words[0], 0, 1) .
-            substr($words[1], 0, 1)
-        );
-    }
-
-    return strtoupper(substr($name, 0, 2));
-}
 
 ?>
 
@@ -76,13 +61,12 @@ function getInitials($name)
 <div class="main">
 
 
-    <!-- ================= LEFT SIDEBAR ================= -->
+<!-- sidebar -->
 
     <div class="left">
 
         <nav>
 
-            <!-- Logo -->
 
             <div class="top">
 
@@ -95,7 +79,7 @@ function getInitials($name)
             </div>
 
 
-            <!-- Navigation -->
+
 
             <div class="center">
 
@@ -110,7 +94,6 @@ function getInitials($name)
             </div>
 
 
-            <!-- Logout -->
 
             <a href="../pages/landing.php" class="logout">
                 Log out
@@ -122,7 +105,6 @@ function getInitials($name)
 
 
 
-    <!-- ================= RIGHT CONTENT ================= -->
 
     <div class="right">
 
@@ -162,38 +144,35 @@ function getInitials($name)
 
                         while ($row = mysqli_fetch_assoc($result)) {
 
-                            $name = htmlspecialchars($row['Full_name']);
+                            $name = $row['Full_name'];
 
-                            $email = htmlspecialchars($row['email']);
+                            $email = $row['email'];
 
-                            $phone = htmlspecialchars($row['phone']);
+                            $phone = $row['phone'];
 
-                            $address = htmlspecialchars($row['address']);
+                            $address = $row['address'];
 
-                            $gender = htmlspecialchars($row['gender']);
+                            $gender = $row['gender'];
 
-                            $language = htmlspecialchars(
+                            $language = 
                                 $row['Language'] ?? ''
-                            );
+                            ;
 
-                            $resume = htmlspecialchars(
+                            $resume = 
                                 $row['Resume'] ?? ''
-                            );
+                            ;
 
-                            $citizenship = htmlspecialchars(
+                            $citizenship = 
                                 $row['Citizenship'] ?? ''
-                            );
+                            ;
 
                             $skill = !empty($row['skill_name'])
-                                ? htmlspecialchars($row['skill_name'])
+                                ? ($row['skill_name'])
                                 : "N/A";
 
-                            $initials = getInitials($row['Full_name']);
+                            
 
-                            /*
-                                Profile image
-                            */
-                            $profileImage = $row['profile_image'];
+    
 
                             ?>
 
@@ -205,21 +184,7 @@ function getInitials($name)
 
                                     <div class="table-user-cell">
 
-                                        <?php if (!empty($profileImage)) { ?>
-
-                                            <img
-                                                class="user-avatar-circle"
-                                                src="../uploads/<?php echo htmlspecialchars($profileImage); ?>"
-                                                alt="Profile"
-                                            >
-
-                                        <?php } else { ?>
-
-                                            <div class="user-avatar-circle">
-                                                <?php echo $initials; ?>
-                                            </div>
-
-                                        <?php } ?>
+                                        
 
 
                                         <strong>
@@ -252,15 +217,15 @@ function getInitials($name)
                                     <button
                                         class="btn-table-view"
                                         onclick="openDetailsModal(
-                                            <?php echo htmlspecialchars(json_encode($row['Full_name'])); ?>,
-                                            <?php echo htmlspecialchars(json_encode($row['email'])); ?>,
-                                            <?php echo htmlspecialchars(json_encode($row['phone'])); ?>,
-                                            <?php echo htmlspecialchars(json_encode($row['address'])); ?>,
-                                            <?php echo htmlspecialchars(json_encode($row['gender'])); ?>,
-                                            <?php echo htmlspecialchars(json_encode($row['Language'] ?? 'N/A')); ?>,
-                                            <?php echo htmlspecialchars(json_encode($skill)); ?>,
-                                            <?php echo htmlspecialchars(json_encode($row['Resume'] ?? '')); ?>,
-                                            <?php echo htmlspecialchars(json_encode($row['Citizenship'] ?? '')); ?>
+                                            <?php echo (json_encode($row['Full_name'])); ?>,
+                                            <?php echo (json_encode($row['email'])); ?>,
+                                            <?php echo (json_encode($row['phone'])); ?>,
+                                            <?php echo (json_encode($row['address'])); ?>,
+                                            <?php echo (json_encode($row['gender'])); ?>,
+                                            <?php echo (json_encode($row['Language'] ?? 'N/A')); ?>,
+                                            <?php echo (json_encode($skill)); ?>,
+                                            <?php echo (json_encode($row['Resume'] ?? '')); ?>,
+                                            <?php echo (json_encode($row['Citizenship'] ?? '')); ?>
                                         )"
                                     >
 
