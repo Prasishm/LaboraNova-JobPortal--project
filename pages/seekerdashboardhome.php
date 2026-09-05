@@ -30,7 +30,10 @@ session_start();?>
                 <span>Browse Job</span>
             </a>
 
+            <a href="../pages/seekernotificaion.php" class="nav-item ">
 
+                <span>Notifications</span>
+            </a>
 
         </nav>
 
