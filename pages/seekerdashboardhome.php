@@ -20,7 +20,7 @@ session_start();?>
 
         <nav class="navigation">
 
-            <a href="../pages/providerhome.php" class="nav-item active">
+            <a href="../pages/seekerdashboardhome.php" class="nav-item active">
 
                 <span>Home</span>
             </a>

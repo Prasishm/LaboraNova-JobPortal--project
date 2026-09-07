@@ -271,7 +271,7 @@ $result =
 
 
                 <div>
-                    <strong><?php echo $_SESSION ['Full_name']?></strong><br>
+                    <strong><?php echo $_SESSION ['Full_name']?></strong>
                     <small>Employee</small>
                 </div>
 

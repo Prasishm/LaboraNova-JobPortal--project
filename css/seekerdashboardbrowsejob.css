@@ -21,13 +21,13 @@ body {
 
 .sidebar {
     width: 280px;
-    min-height: 100vh;
+    height: 100%;
 
     background: #ffffff;
 
     border-right: 1px solid #e5e1df;
 
-    padding: 35px 20px 20px 20px;
+    padding: 20px;
 
     display: flex;
     flex-direction: column;
@@ -73,7 +73,7 @@ a{
 .logo img{
     width: 200px;
     height:50px;
-    margin: -8px 10px 70px;
+    margin: 0 10px 70px;
 }
 
 
@@ -111,28 +111,36 @@ a{
 }
 
 
-.provider-small {
-    border-top: 1px solid #e5e1df;
 
-    padding: 20px 8px;
+.provider-small small {
+    display: block;
 
-    display: flex;
-    align-items: center;
+    color: #8993a0;
 
-    gap: 12px;
+    font-size: 12px;
+
+    margin-top: 3px;
 }
 .main{
     display: flex;
 }
+.logout {
+    border-top: 1px solid #e5e1df;
 
+    padding: 20px 8px;
+
+    color: #34495e;
+
+    font-size: 15px;
+}
 /* =========================================
    RIGHT SIDE
 ========================================= */
 
 .right {
-    width: calc(100% - 260px);
+    width: calc(100% - 280px);
 
-    padding: 30px;
+    padding: 35px 45px;
 }
 
 
