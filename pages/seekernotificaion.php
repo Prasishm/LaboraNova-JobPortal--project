@@ -99,89 +99,63 @@ $result = mysqli_stmt_get_result($stmt);
 
     <div class="left">
 
-        <aside class="sidebar">
-
-
-            <!-- LOGO -->
-
-            <div class="logo">
-
-                <span>
-
-                    <img
-                        src="../assets/lavoranovaaa.png"
-                        alt="LaboraNova"
-                    >
-
-                </span>
-
-            </div>
-
-
-            <!-- NAVIGATION -->
-
-            <nav class="navigation">
-
-            <a href="../pages/seekerdashboardhome.php" class="nav-item">
-
-                <span>Home</span>
-            </a>
-
-            <a href="../pages/seekerdashboardbrowsejob.php" class="nav-item">
-
-                <span>Browse Job</span>
-            </a>
-
-            <a href="../pages/seekernotificaion.php" class="nav-item active">
-
-                <span>Notifications</span>
-</a>
-
-        </nav>
-
-
-            <!-- =====================================
-                 SIDEBAR BOTTOM
-            ====================================== -->
-
-            <div class="sidebar-bottom">
-
-
-                <div class="provider-small">
-
+            <aside class="sidebar">
+                <div style="
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+">
                     <div>
 
-                        <strong>
-                            <?php
-                            echo htmlspecialchars(
-                                $_SESSION['Full_name']
-                            );
-                            ?>
-                        </strong>
+                        <div class="logo">
+
+                            <span><img src="../assets/lavoranovaaa.png" alt=""></span>
+                        </div>
+
+                        <nav class="navigation">
+
+                            <a href="../pages/seekerdashboardhome.php" class="nav-item active">
+
+                                <span>Home</span>
+                            </a>
+
+                            <a href="../pages/seekerdashboardbrowsejob.php" class="nav-item">
+
+                                <span>Browse Job</span>
+                            </a>
+                            <a href="../pages/seekernotificaion.php" class="nav-item ">
+
+                                <span>Notifications</span>
+                            </a>
 
 
-                        <small>Employee</small>
+                        </nav>
+
+                    </div>
+                    <div class="sidebar-bottom">
+
+                        <div class="provider-small">
+
+
+                            <div>
+                                <strong><?php echo $_SESSION['Full_name'] ?></strong>
+                                <small>Employee</small>
+                            </div>
+
+                        </div>
+
+                        <div class="logout"><a href="../pages/logincompany.php">Log out</a>
+                        </div>
 
                     </div>
 
                 </div>
+            </aside>
 
-
-                <div class="logout">
-
-                    <a href="../pages/loginseeker.php">
-                        Log out
-                    </a>
-
-                </div>
-
-
-            </div>
-
-
-        </aside>
-
-    </div>
+        </div>
 
 
 

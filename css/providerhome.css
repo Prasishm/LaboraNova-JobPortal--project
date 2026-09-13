@@ -1,7 +1,7 @@
-*{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -10,7 +10,7 @@ body {
     color: #17202a;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -23,18 +23,14 @@ a{
 
 .sidebar {
     width: 280px;
-    min-height: 100vh;
-
+    height: 100%;
     background: #ffffff;
-
     border-right: 1px solid #e5e1df;
-
     padding: 20px;
-
     display: flex;
     flex-direction: column;
-
-    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .navigation {
@@ -70,9 +66,9 @@ a{
 }
 
 
-.logo img{
+.logo img {
     width: 200px;
-    height:50px;
+    height: 50px;
     margin: 0 10px 70px;
 }
 
