@@ -12,8 +12,16 @@ $result =
         $sql
     );
 
+$pfp = "select * from jobseeker where jobseeker_id = {$_SESSION['jobseeker_id']}";
+$pfpresult = mysqli_query($conn, $pfp);
+if (!($pfpresult && mysqli_num_rows($pfpresult) > 0)) {
+    echo "<script>
+            alert('Please complete your profile first!');
+            window.location.href = 'editprofile.php';
+          </script>";
+}
 
-
+$pfpdata = mysqli_fetch_assoc($pfpresult);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -125,10 +133,10 @@ $result =
 
                         <div>
                             <h2><?php echo $_SESSION['Full_name'] ?></h2>
-                            <p>Frontend Developer</p>
+                            <!-- <p><?php echo $pfpdata['bio'] ?></p> -->
 
                             <div class="seeker-location">
-                                Kathmandu, Nepal
+                                <?php echo $pfpdata['address'] ?>
                             </div>
                         </div>
 
