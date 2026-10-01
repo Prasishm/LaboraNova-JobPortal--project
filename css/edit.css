@@ -21,18 +21,20 @@ body {
 
 .sidebar {
     width: 280px;
-    min-height: 100vh;
-
-    background: #ffffff;
-
+    height: 100%;
+    background: #ffff;
     border-right: 1px solid #e5e1df;
-
     padding: 20px;
-
     display: flex;
     flex-direction: column;
-
-    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .navigation {
@@ -131,6 +133,7 @@ body {
 .main-content {
     width: 100%;
     padding: 8px;
+    margin-left: 350px;
 }
 
 
@@ -326,3 +329,148 @@ a{
 
 
 
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title {
+    grid-column: 1 / -1;
+
+    font-size: 21px;
+    font-weight: 700;
+
+    color: #172b4d;
+
+    padding-bottom: 10px;
+
+    margin-top: 10px;
+
+    border-bottom: 1px solid #e5e1df;
+}
+
+
+/* =========================
+   FULL WIDTH
+========================= */
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    width: 280px;
+    height: 100vh;
+
+    background: #ffffff;
+
+    border-right: 1px solid #e5e1df;
+
+    padding: 20px;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    overflow-y: auto;
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.main-content {
+    width: calc(100% - 280px);
+
+    min-height: 100vh;
+
+    margin-left: 280px;
+
+    padding: 40px;
+}
+
+
+/* =========================
+   FORM CARD
+========================= */
+
+.form-card {
+    width: 100%;
+    max-width: 1150px;
+
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    padding: 38px;
+
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.03);
+}
+.current-file {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #73829a;
+
+    font-size: 13px;
+}
+
+.current-file a {
+    color: #f15a3a;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.current-file a:hover {
+    text-decoration: underline;
+}
+
+
+/* FILE INPUT */
+
+.form-group input[type="file"] {
+    height: auto;
+
+    padding: 15px;
+
+    cursor: pointer;
+
+    background: #ffffff;
+}
+
+
+/* FILE INPUT HOVER */
+
+.form-group input[type="file"]:hover {
+    border-color: #f15a3a;
+}
+/* =========================
+   PROFILE IMAGE
+========================= */
+
+.profile-preview {
+    margin-bottom: 15px;
+}
+
+.profile-preview img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #f15a3a;
+    display: block;
+}
