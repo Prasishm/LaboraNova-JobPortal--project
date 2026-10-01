@@ -220,20 +220,6 @@ a {
     flex-shrink: 0;
 }
 
-.stat-icon-orange {
-    background: #fff0e9;
-    color: #f15a3a;
-}
-
-.stat-icon-blue {
-    background: #eff6ff;
-    color: #2563eb;
-}
-
-.stat-icon-green {
-    background: #ecfdf5;
-    color: #059669;
-}
 
 .stat-info {
     display: flex;

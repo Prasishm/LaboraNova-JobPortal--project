@@ -365,13 +365,13 @@ nav {
 }
 
 .live {
-    background: #e6f7ef;
-    color: #159447;
+    /* background: #e6f7ef; */
+    color: #000000;
 }
 
 .closing {
-    background: #fff1d6;
-    color: #c18309;
+    
+    color: #000000;
 }
 
 .paused {

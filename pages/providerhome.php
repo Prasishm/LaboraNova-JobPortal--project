@@ -202,7 +202,6 @@ if ($a_row = mysqli_fetch_assoc($a_res)) {
         <!-- STATS CARDS -->
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-icon stat-icon-orange">J</div>
                 <div class="stat-info">
                     <span class="stat-label">Total Jobs Posted</span>
                     <strong class="stat-value"><?php echo $totalJobs; ?></strong>
@@ -210,7 +209,6 @@ if ($a_row = mysqli_fetch_assoc($a_res)) {
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon stat-icon-blue">A</div>
                 <div class="stat-info">
                     <span class="stat-label">Total Applications</span>
                     <strong class="stat-value"><?php echo $totalApplications; ?></strong>
@@ -218,7 +216,7 @@ if ($a_row = mysqli_fetch_assoc($a_res)) {
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon stat-icon-green">E</div>
+
                 <div class="stat-info">
                     <span class="stat-label">Working in Company</span>
                     <strong class="stat-value"><?php echo $totalEmployees; ?></strong>
@@ -538,7 +536,6 @@ if ($a_row = mysqli_fetch_assoc($a_res)) {
                     <strong>N/A</strong>
                 <?php } ?>
             </div>
-
             <div class="document-item">
                 <span>Certificate</span>
                 <?php 

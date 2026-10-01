@@ -264,7 +264,7 @@ $totalJobseekers = mysqli_num_rows($result);
             <?php } ?>
         </div>
 
-        <!-- DOCUMENTS -->
+        <!-- <- DOCUMENTS > -->
         <div class="documents-section">
             <h3>Documents</h3>
 
@@ -283,7 +283,6 @@ $totalJobseekers = mysqli_num_rows($result);
                     <strong>N/A</strong>
                 <?php } ?>
             </div>
-
             <!-- CITIZENSHIP -->
             <div class="document-item">
                 <span>Citizenship</span>
@@ -299,7 +298,6 @@ $totalJobseekers = mysqli_num_rows($result);
                     <strong>N/A</strong>
                 <?php } ?>
             </div>
-
             <!-- CERTIFICATE -->
             <?php if (!empty($selectedJobseeker['certificate'])) { 
                 $certPath = $selectedJobseeker['certificate'];

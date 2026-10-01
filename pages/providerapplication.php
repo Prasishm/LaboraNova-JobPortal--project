@@ -720,11 +720,9 @@ $result->data_seek(0);
                     <label>Certificate</label>
 
                     <p>
-                        <?php
-                        echo htmlspecialchars(
-                            $jobseeker['certificate'] ?? 'Not provided'
-                        );
-                        ?>
+                        <a href="<?php echo htmlspecialchars($jobseeker['certificate'] ?? 'Not provided'); ?>" target="_blank" class="document-btn">
+                            View Certificate
+                        </a>
                     </p>
 
                 </div>
@@ -749,7 +747,7 @@ $result->data_seek(0);
                     <?php if (!empty($jobseeker['Resume'])): ?>
 
                         <a
-                            href="../uploads/resume/<?php echo htmlspecialchars($jobseeker['Resume']); ?>"
+                            href="<?php echo htmlspecialchars($jobseeker['Resume']); ?>"
                             target="_blank"
                             class="document-btn">
                             View Resume
@@ -771,7 +769,7 @@ $result->data_seek(0);
                     <?php if (!empty($jobseeker['Citizenship'])): ?>
 
                         <a
-                            href="../uploads/citizenship/<?php echo htmlspecialchars($jobseeker['Citizenship']); ?>"
+                            href="<?php echo htmlspecialchars($jobseeker['Citizenship']); ?>"
                             target="_blank"
                             class="document-btn">
                             View Citizenship
