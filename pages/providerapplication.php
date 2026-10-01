@@ -7,12 +7,19 @@ include "../database/conn.php";
 
 /* CHECK JOB PROVIDER LOGIN*/
 
-if (!isset($_SESSION['company_name'])) {
+if (!isset($_SESSION['company_name']) && !isset($_SESSION['jobprovider_id'])) {
     header("Location: logincompany.php");
     exit();
 }
 
-$company_name = $_SESSION['company_name'];
+if (!isset($_SESSION['company_name']) && isset($_SESSION['jobprovider_id'])) {
+    $q = mysqli_query($conn, "SELECT company_name FROM jobprovider WHERE jobprovider_id = " . (int)$_SESSION['jobprovider_id']);
+    if ($r = mysqli_fetch_assoc($q)) {
+        $_SESSION['company_name'] = $r['company_name'];
+    }
+}
+
+$company_name = $_SESSION['company_name'] ?? '';
 
 
 /* APPROVE / DECLINE APPLICATION */
@@ -213,22 +220,21 @@ $result->data_seek(0);
             </div>
 
             <nav class="navigation">
-
-                <a href="../pages/providerhome.php" class="nav-item active">
-
+                <a href="providerhome.php" class="nav-item">
                     <span>Home</span>
                 </a>
 
-                <a href="../pages/providerpostjob.php" class="nav-item">
-
+                <a href="providerpostjob.php" class="nav-item">
                     <span>Post Job</span>
                 </a>
 
-                <a href="../pages/providerapplication.php" class="nav-item">
-
+                <a href="providerapplication.php" class="nav-item active">
                     <span>Applications</span>
                 </a>
 
+                <a href="providereditprofile.php" class="nav-item">
+                    <span>Edit Profile</span>
+                </a>
             </nav>
 
             <div class="sidebar-bottom">
@@ -238,7 +244,7 @@ $result->data_seek(0);
 
                     <div>
                         <strong><?php echo $_SESSION['company_name'] ?></strong>
-                        <small>Company</small>
+                        <small>Job Provider</small>
                     </div>
 
                 </div>

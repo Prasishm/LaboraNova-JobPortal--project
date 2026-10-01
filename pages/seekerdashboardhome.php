@@ -2,26 +2,46 @@
 session_start();
 include "../database/conn.php";
 
-$sql =
-    "SELECT * FROM job ORDER BY job_id DESC";
+// Check if jobseeker is logged in
+if (!isset($_SESSION['jobseeker_id'])) {
+    header("Location: loginseeker.php");
+    exit();
+}
 
+$jobseeker_id = (int)$_SESSION['jobseeker_id'];
 
-$result =
-    mysqli_query(
-        $conn,
-        $sql
-    );
+// Fetch seeker details
+$pfp_sql = "
+    SELECT js.*, s.skill_name 
+    FROM jobseeker js 
+    LEFT JOIN skill s ON js.skill_id = s.skill_id 
+    WHERE js.jobseeker_id = ?
+";
+$pfp_stmt = mysqli_prepare($conn, $pfp_sql);
+mysqli_stmt_bind_param($pfp_stmt, "i", $jobseeker_id);
+mysqli_stmt_execute($pfp_stmt);
+$pfpresult = mysqli_stmt_get_result($pfp_stmt);
 
-$pfp = "select * from jobseeker where jobseeker_id = {$_SESSION['jobseeker_id']}";
-$pfpresult = mysqli_query($conn, $pfp);
-if (!($pfpresult && mysqli_num_rows($pfpresult) > 0)) {
+if (!$pfpresult || mysqli_num_rows($pfpresult) === 0) {
     echo "<script>
             alert('Please complete your profile first!');
             window.location.href = 'editprofile.php';
           </script>";
+    exit();
 }
 
 $pfpdata = mysqli_fetch_assoc($pfpresult);
+$seekerName = !empty($pfpdata['Full_name']) ? $pfpdata['Full_name'] : ($_SESSION['Full_name'] ?? 'Job Seeker');
+
+// Fetch 3 recommended jobs in descending order
+$sql = "
+    SELECT j.*, jp.company_name 
+    FROM job j 
+    INNER JOIN jobprovider jp ON j.jobprovider_id = jp.jobprovider_id 
+    ORDER BY j.job_id DESC 
+    LIMIT 3
+";
+$result = mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,347 +49,209 @@ $pfpdata = mysqli_fetch_assoc($pfpresult);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seeker</title>
-    <link rel="stylesheet" href="../css//seekerdashboardhome.css" />
+    <title>Job Seeker Dashboard - LaboraNova</title>
+    <link rel="stylesheet" href="../css/seekerdashboardhome.css" />
 </head>
 
 <body>
     <div class="main">
         <div class="left">
-
             <aside class="sidebar">
                 <div style="
-    position: fixed;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-">
+                    position: fixed;
+                    top: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    height: 100%;
+                    width: 240px;
+                ">
                     <div>
-
                         <div class="logo">
-
-                            <span><img src="../assets/lavoranovaaa.png" alt=""></span>
+                            <span><img src="../assets/lavoranovaaa.png" alt="LaboraNova"></span>
                         </div>
 
                         <nav class="navigation">
-
-                            <a href="../pages/seekerdashboardhome.php" class="nav-item active">
-
+                            <a href="seekerdashboardhome.php" class="nav-item active">
                                 <span>Home</span>
                             </a>
 
-                            <a href="../pages/seekerdashboardbrowsejob.php" class="nav-item">
-
-                                <span>Browse Job</span>
+                            <a href="seekerdashboardbrowsejob.php" class="nav-item">
+                                <span>Browse Jobs</span>
                             </a>
-                            <a href="../pages/seekernotificaion.php" class="nav-item ">
 
+                            <a href="seekernotificaion.php" class="nav-item">
                                 <span>Notifications</span>
                             </a>
 
-
+                            <a href="editprofile.php" class="nav-item">
+                                <span>Edit Profile</span>
+                            </a>
                         </nav>
-
                     </div>
+
                     <div class="sidebar-bottom">
-
                         <div class="provider-small">
-
-
                             <div>
-                                <strong><?php echo $_SESSION['Full_name'] ?></strong>
-                                <small>Employee</small>
+                                <strong><?php echo htmlspecialchars($seekerName); ?></strong>
+                                <small>Job Seeker</small>
                             </div>
-
                         </div>
 
-                        <div class="logout"><a href="../pages/logincompany.php">Log out</a>
+                        <div class="logout">
+                            <a href="loginseeker.php">Log out</a>
                         </div>
-
                     </div>
-
                 </div>
             </aside>
-
         </div>
+
         <div class="right">
-
-
-
             <div class="dashboard-header">
-
                 <div>
-                    <h1>Welcome back, Job Seeker!</h1>
+                    <h1>Welcome back, <?php echo htmlspecialchars($seekerName); ?>!</h1>
                     <p>Find your next opportunity and manage your applications.</p>
                 </div>
 
                 <div class="profile">
-
-
+                    <?php 
+                    $profileImg = $pfpdata['profile_image'] ?? '';
+                    if (!empty($profileImg)) {
+                        $pImgPath = (strpos($profileImg, '../') === 0) ? $profileImg : '../' . $profileImg;
+                    ?>
+                        <img src="<?php echo htmlspecialchars($pImgPath); ?>" alt="Profile" class="profile-avatar" style="object-fit: cover;">
+                    <?php } else { ?>
+                        <div class="profile-avatar">
+                            <?php echo strtoupper(substr($seekerName, 0, 1)); ?>
+                        </div>
+                    <?php } ?>
                     <div>
-                        <strong><?php echo $_SESSION['Full_name'] ?></strong>
-                        <span>Employee</span>
+                        <strong><?php echo htmlspecialchars($seekerName); ?></strong>
+                        <span>Job Seeker</span>
                     </div>
                 </div>
-
             </div>
 
+            <!-- SEEKER PROFILE SUMMARY -->
             <div class="seeker-profile">
-
                 <div class="section-title">
-
-                    <a href="../pages/editprofile.php">Edit Profile</a>
+                    <h2>My Profile</h2>
+                    <a href="editprofile.php">Edit Profile</a>
                 </div>
-
 
                 <div class="seeker-info">
-
-
                     <div class="seeker-about">
-
-
+                        <?php 
+                        if (!empty($profileImg)) {
+                            $pImgPath = (strpos($profileImg, '../') === 0) ? $profileImg : '../' . $profileImg;
+                        ?>
+                            <img src="<?php echo htmlspecialchars($pImgPath); ?>" alt="Avatar" class="large-avatar" style="object-fit: cover;">
+                        <?php } else { ?>
+                            <div class="large-avatar">
+                                <?php echo strtoupper(substr($seekerName, 0, 1)); ?>
+                            </div>
+                        <?php } ?>
 
                         <div>
-                            <h2><?php echo $_SESSION['Full_name'] ?></h2>
-                            <!-- <p><?php echo $pfpdata['bio'] ?></p> -->
-
+                            <h2><?php echo htmlspecialchars($seekerName); ?></h2>
                             <div class="seeker-location">
-                                <?php echo $pfpdata['address'] ?>
+                                 <?php echo htmlspecialchars(!empty($pfpdata['address']) ? $pfpdata['address'] : 'Location not set'); ?>
                             </div>
                         </div>
-
                     </div>
 
-
-                    <!-- Information -->
                     <div class="info-item">
-
-
                         <div>
                             <small>Skills</small>
-                            <p>HTML, CSS, JavaScript, PHP, MySQL</p>
+                            <p><?php echo htmlspecialchars(!empty($pfpdata['skill_name']) ? $pfpdata['skill_name'] : 'Not provided'); ?></p>
                         </div>
-
                     </div>
 
-
                     <div class="info-item">
-
-
-
                         <div>
                             <small>Languages</small>
-                            <p>English, Nepali, Hindi</p>
+                            <p><?php echo htmlspecialchars(!empty($pfpdata['Language']) ? $pfpdata['Language'] : 'Not provided'); ?></p>
                         </div>
-
                     </div>
 
-
                     <div class="info-item">
-
-
-
                         <div>
                             <small>Education</small>
-                            <p>Bachelor in Computer Science</p>
+                            <p><?php echo htmlspecialchars(!empty($pfpdata['education']) ? $pfpdata['education'] : 'Not provided'); ?></p>
                         </div>
-
                     </div>
 
-
                     <div class="info-item">
-
-
-
                         <div>
                             <small>Experience</small>
-                            <p>2 Years Experience</p>
+                            <p><?php echo htmlspecialchars(!empty($pfpdata['experience']) ? $pfpdata['experience'] : 'Not provided'); ?></p>
                         </div>
-
                     </div>
-
 
                     <div class="info-item">
-
-
-
                         <div>
                             <small>Email</small>
-                            <p>jobseeker@example.com</p>
+                            <p><?php echo htmlspecialchars(!empty($pfpdata['email']) ? $pfpdata['email'] : 'Not provided'); ?></p>
                         </div>
-
                     </div>
 
-
+                    <div class="info-item">
+                        <div>
+                            <small>Phone</small>
+                            <p><?php echo htmlspecialchars(!empty($pfpdata['phone']) ? $pfpdata['phone'] : 'Not provided'); ?></p>
+                        </div>
+                    </div>
                 </div>
-
             </div>
 
-
-
-
-
+            <!-- RECOMMENDED JOBS (TOP 3 IN DESCENDING ORDER) -->
             <div class="dashboard-content">
-
-
-
                 <div class="recommended">
                     <div class="section-title">
                         <h2>Recommended Jobs</h2>
-                        <a href="#">View all</a>
+                        <a href="seekerdashboardbrowsejob.php">View All Jobs &rarr;</a>
                     </div>
 
-
-
                     <?php
-
-                    if (mysqli_num_rows($result) > 0) {
-
+                    if ($result && mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
-
+                            $companyInitial = strtoupper(substr($row['company_name'] ?? 'C', 0, 1));
                     ?>
-
-
-
-
-
                             <div class="job-card">
-
                                 <div class="company-logo">
-                                    G
+                                    <?php echo $companyInitial; ?>
                                 </div>
 
                                 <div class="job-info">
-
-                                    <h3>Frontend Developer</h3>
-
-                                    <p>Google</p>
+                                    <h3><?php echo htmlspecialchars($row['job_title']); ?></h3>
+                                    <p><?php echo htmlspecialchars($row['company_name']); ?></p>
 
                                     <div class="job-details">
-
-                                        <span> Kathmandu</span>
-
-                                        <span> Rs. 50K - 80K</span>
-
-                                        <span> Full Time</span>
-
+                                        <span> <?php echo htmlspecialchars($row['job_location']); ?></span>
+                                        <span> Rs. <?php echo number_format((float)$row['salary'], 2); ?></span>
+                                        <span> <?php echo htmlspecialchars($row['job_type']); ?></span>
+                                        <span> Due: <?php echo htmlspecialchars($row['due_date']); ?></span>
+                                        <span> Openings: <?php echo htmlspecialchars($row['no_of_opening']); ?></span>
                                     </div>
-
                                 </div>
 
-                                <button class="apply-btn">
-                                    Apply Now
-                                </button>
-
+                                <a href="seekerdashboardbrowsejob.php" class="apply-btn">
+                                    View & Apply
+                                </a>
                             </div>
-
-                    <?php };
-                    } ?>
-
-
-
-
-
+                    <?php 
+                        }
+                    } else { 
+                    ?>
+                        <div style="text-align: center; padding: 40px 20px; color: #888;">
+                            <p>No jobs available at the moment. Please check back soon!</p>
+                        </div>
+                    <?php 
+                    } 
+                    ?>
                 </div>
-
-
-
-
-
-                <div class="applications">
-
-                    <div class="section-title">
-
-                        <h2>Recent Applications</h2>
-
-                        <a href="#">View all</a>
-
-                    </div>
-
-
-
-
-                    <div class="application-item">
-
-                        <div>
-
-                            <h3>Web Developer</h3>
-
-                            <p>ABC Technologies</p>
-
-                        </div>
-
-                        <span class="status pending">
-                            Pending
-                        </span>
-
-                    </div>
-
-                    <div class="application-item">
-
-                        <div>
-
-                            <h3>Software Engineer</h3>
-
-                            <p>Tech Nepal</p>
-
-                        </div>
-
-                        <span class="status shortlisted">
-                            Shortlisted
-                        </span>
-
-                    </div>
-
-                    <div class="application-item">
-
-                        <div>
-
-                            <h3>UI Designer</h3>
-
-                            <p>Creative Studio</p>
-
-                        </div>
-
-                        <span class="status rejected">
-                            Rejected
-                        </span>
-
-                    </div>
-
-
-                    <!-- Application 4 -->
-
-                    <div class="application-item">
-
-                        <div>
-
-                            <h3>PHP Developer</h3>
-
-                            <p>Digital Solutions</p>
-
-                        </div>
-
-                        <span class="status pending">
-                            Pending
-                        </span>
-
-                    </div>
-
-                </div>
-
             </div>
-
-
         </div>
-
-
-
     </div>
-
-
 </body>
-
 </html>

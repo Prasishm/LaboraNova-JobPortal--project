@@ -110,22 +110,21 @@ $conn->close();
         </div>
 
         <nav class="navigation">
-
-            <a href="../pages/providerhome.php" class="nav-item active">
-
+            <a href="providerhome.php" class="nav-item">
                 <span>Home</span>
             </a>
 
-            <a href="../pages/providerpostjob.php" class="nav-item">
-
+            <a href="providerpostjob.php" class="nav-item active">
                 <span>Post Job</span>
             </a>
 
-            <a href="../pages/providerapplication.php" class="nav-item">
-
+            <a href="providerapplication.php" class="nav-item">
                 <span>Applications</span>
             </a>
 
+            <a href="providereditprofile.php" class="nav-item">
+                <span>Edit Profile</span>
+            </a>
         </nav>
 
         <div class="sidebar-bottom">
@@ -135,7 +134,7 @@ $conn->close();
 
                 <div>
                     <strong><?php echo $_SESSION ['company_name']?></strong>
-                    <small>Company</small>
+                    <small>Job Provider</small>
                 </div>
 
             </div>

@@ -70,7 +70,7 @@ input{
     color: #eb5935;
 }
 .gender-option:has(input:checked)::after{
-    content: "✓";
+    content: "\2713";
     color: #eb5935;
     border-color: #eb5935;
     display: flex;

@@ -273,7 +273,7 @@ $result =
 
                         </div>
 
-                        <div class="logout"><a href="../pages/logincompany.php">Log out</a>
+                        <div class="logout"><a href="loginseeker.php">Log out</a>
                         </div>
 
                     </div>

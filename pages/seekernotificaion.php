@@ -147,7 +147,7 @@ $result = mysqli_stmt_get_result($stmt);
 
                         </div>
 
-                        <div class="logout"><a href="../pages/logincompany.php">Log out</a>
+                        <div class="logout"><a href="loginseeker.php">Log out</a>
                         </div>
 
                     </div>
@@ -312,11 +312,6 @@ $result = mysqli_stmt_get_result($stmt);
                 <!-- NO NOTIFICATION -->
 
                 <div class="no-notification">
-
-
-                    <div class="empty-icon">
-                        🔔
-                    </div>
 
 
                     <h2>

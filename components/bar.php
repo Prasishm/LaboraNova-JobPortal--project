@@ -5,7 +5,7 @@ function bar($active){  ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>LaboraNova</title>
 </head>
 <body>
     
@@ -19,17 +19,14 @@ function bar($active){  ?>
         <nav class="navigation">
 
             <a href="../pages/providerhome.php" class="nav-item active">
-                <span class="nav-icon">⌂</span>
                 <span>Home</span>
             </a>
 
             <a href="../pages/providerpostjob.php" class="nav-item">
-                <span class="nav-icon">＋</span>
                 <span>Post Job</span>
             </a>
 
             <a href="candidates.html" class="nav-item">
-                <span class="nav-icon">♙</span>
                 <span>Candidates</span>
             </a>
 
@@ -39,9 +36,8 @@ function bar($active){  ?>
 
             <div class="provider-small">
 
-
                 <div>
-                    <strong><?php echo $_SESSION ['company_name']?></strong>
+                    <strong><?php echo $_SESSION ['company_name'] ?? '' ?></strong>
                     <small>Company</small>
                 </div>
 
@@ -58,4 +54,3 @@ function bar($active){  ?>
 
 </body>
 </html>
-?>

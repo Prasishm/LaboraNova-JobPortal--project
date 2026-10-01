@@ -951,11 +951,15 @@ mysqli_stmt_execute($stmt);
         Profile Image
     </label>
 
-    <?php if (!empty($user['profile_image'])): ?>
+    <?php 
+    $profileImg = $user['profile_image'] ?? '';
+    $profileImgSrc = !empty($profileImg) ? (strpos($profileImg, '../') === 0 ? $profileImg : '../' . $profileImg) : '';
+    if (!empty($profileImgSrc)): 
+    ?>
 
         <div class="profile-preview">
             <img
-                src="<?php echo htmlspecialchars($user['profile_image']); ?>"
+                src="<?php echo htmlspecialchars($profileImgSrc); ?>"
                 alt="Profile Image"
             >
         </div>
@@ -969,7 +973,7 @@ mysqli_stmt_execute($stmt);
         accept=".jpg,.jpeg,.png,.webp"
     >
 
-    <?php if (!empty($user['profile_image'])): ?>
+    <?php if (!empty($profileImgSrc)): ?>
 
         <small class="current-file">
             Current profile image is shown above.
@@ -1272,18 +1276,18 @@ mysqli_stmt_execute($stmt);
         accept=".jpg,.jpeg,.png,.webp,.pdf">
 
 
-    <?php if (!empty($training['certificate'])): ?>
+    <?php 
+    $certPath = $training['certificate'] ?? '';
+    $certHref = !empty($certPath) ? (strpos($certPath, '../') === 0 ? $certPath : '../' . $certPath) : '';
+    if (!empty($certHref)): 
+    ?>
 
         <small class="current-file">
 
             Current certificate:
 
             <a
-                href="<?php
-                echo htmlspecialchars(
-                    $training['certificate']
-                );
-                ?>"
+                href="<?php echo htmlspecialchars($certHref); ?>"
                 target="_blank">
 
                 View Certificate
@@ -1313,11 +1317,15 @@ mysqli_stmt_execute($stmt);
         name="resume"
         accept=".pdf,.doc,.docx">
 
-    <?php if (!empty($user['Resume'])): ?>
+    <?php 
+    $resPath = $user['Resume'] ?? '';
+    $resHref = !empty($resPath) ? (strpos($resPath, '../') === 0 ? $resPath : '../' . $resPath) : '';
+    if (!empty($resHref)): 
+    ?>
 
         <small class="current-file">
             Current resume:
-            <a href="<?php echo htmlspecialchars($user['Resume']); ?>"
+            <a href="<?php echo htmlspecialchars($resHref); ?>"
                target="_blank">
                 View Resume
             </a>
@@ -1342,11 +1350,15 @@ mysqli_stmt_execute($stmt);
         name="citizenship"
         accept=".jpg,.jpeg,.png,.pdf">
 
-    <?php if (!empty($user['Citizenship'])): ?>
+    <?php 
+    $citPath = $user['Citizenship'] ?? '';
+    $citHref = !empty($citPath) ? (strpos($citPath, '../') === 0 ? $citPath : '../' . $citPath) : '';
+    if (!empty($citHref)): 
+    ?>
 
         <small class="current-file">
             Current citizenship:
-            <a href="<?php echo htmlspecialchars($user['Citizenship']); ?>"
+            <a href="<?php echo htmlspecialchars($citHref); ?>"
                target="_blank">
                 View Citizenship
             </a>

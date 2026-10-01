@@ -240,9 +240,9 @@ a {
 
 .seeker-info {
     display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
-    align-items: center;
+    align-items: start;
 }
 
 
@@ -252,6 +252,9 @@ a {
     display: flex;
     align-items: center;
     gap: 15px;
+    grid-column: 1 / -1;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0ece9;
 }
 
 
@@ -295,6 +298,10 @@ a {
     display: flex;
     align-items: center;
     gap: 12px;
+    background: #faf8f7;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #f2eeea;
 }
 
 
@@ -319,23 +326,26 @@ a {
     font-size: 11px;
 
     margin-bottom: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 
 .info-item p {
     color: #333;
 
-    font-size: 13px;
-
+    font-size: 14px;
+    font-weight: 500;
     line-height: 1.4;
+    word-break: break-word;
 }
 
 
 
 .dashboard-content {
-    display: grid;
-    grid-template-columns: 1.7fr 1fr;
-    gap: 25px;
+    display: block;
+    width: 100%;
 }
 
 
@@ -357,8 +367,8 @@ a {
 .job-card {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 18px 0;
+    gap: 18px;
+    padding: 20px 0;
     border-bottom: 1px solid #eee;
 }
 
